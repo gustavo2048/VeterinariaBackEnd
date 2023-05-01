@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ohMyDog.OhMyDog.Entity.Cliente;
-import com.ohMyDog.OhMyDog.Service.PersonaServiceIMPL.personServiceIMPL;
+import com.ohMyDog.OhMyDog.ServiceIMPL.personServiceIMPL;
 
 @RestController
 @RequestMapping("CRUD")

@@ -1,4 +1,4 @@
-package com.ohMyDog.OhMyDog.Service.PersonaServiceIMPL;
+package com.ohMyDog.OhMyDog.ServiceIMPL;
 
 import java.util.List;
 
