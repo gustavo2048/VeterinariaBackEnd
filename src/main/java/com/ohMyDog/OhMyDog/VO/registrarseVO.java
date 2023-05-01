@@ -1,7 +1,7 @@
 package com.ohMyDog.OhMyDog.VO;
 
-import com.ohMyDog.OhMyDog.entity.Mascota;
-import com.ohMyDog.OhMyDog.entity.Usuario;
+import com.ohMyDog.OhMyDog.Entity.Mascota;
+import com.ohMyDog.OhMyDog.Entity.Usuario;
 
 public class registrarseVO {
 	

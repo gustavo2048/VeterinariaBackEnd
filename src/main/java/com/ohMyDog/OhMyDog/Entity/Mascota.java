@@ -22,7 +22,7 @@ public class Mascota {
 	private boolean borrado;
 
 	@Column(name = "nombre")
-	private boolean nombre;
+	private String nombre;
 
 	@Column(name = "raza")
 	private String raza;
@@ -101,12 +101,21 @@ public class Mascota {
 		this.foto = foto;
 	}
 
-	public Usuario getUsuarioPropietario() {
-		return usuarioPropietario;
+	public String isNombre() {
+		return nombre;
 	}
 
-	public void setUsuarioPropietario(Usuario usuarioPropietario) {
-		this.usuarioPropietario = usuarioPropietario;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	
 }
