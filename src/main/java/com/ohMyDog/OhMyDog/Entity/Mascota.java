@@ -21,6 +21,9 @@ public class Mascota {
 	@Column(name = "borrado")
 	private boolean borrado;
 
+	@Column(name = "nombre")
+	private boolean nombre;
+
 	@Column(name = "raza")
 	private String raza;
 	
@@ -36,9 +39,8 @@ public class Mascota {
 	@Column(name = "foto")
 	private String foto;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idPropietario")
-	private Usuario usuarioPropietario;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Usuario usuario;
 
 	
 	

@@ -46,6 +46,10 @@ public class Usuario {
 	@Column(name = "rol")
 	private String rol;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Mascota> mascotas;
+
 	
 	
 	public int getId() {
