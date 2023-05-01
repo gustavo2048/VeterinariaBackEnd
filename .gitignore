@@ -14,7 +14,7 @@ target/
 .sts4-cache
 
 ### Configuracion Eclipse ###
-!**/src/main/resources/application.properties
+/src/main/resources/application.properties
 
 ### IntelliJ IDEA ###
 .idea
