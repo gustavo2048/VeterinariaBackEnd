@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ohMyDog.OhMyDog.DTO.UsuarioDTO;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.Repository.UsuarioRepositoty;
 import com.ohMyDog.OhMyDog.Service.UsuarioService;
@@ -22,10 +23,12 @@ public class usuarioServiceIMPL implements UsuarioService {
 	}
 
 	@Override
-	public Usuario crearUsuario(Usuario usuario) {
+	public Usuario crearUsuario(UsuarioDTO usuario) {
 		// TODO Auto-generated method stub
-		usuario.setEmail( usuario.getEmail());
-		return this.repo.save(usuario);
+		Usuario nuevoUsuario = new Usuario(usuario);
+		nuevoUsuario.setBorrado(false);
+		nuevoUsuario.setVerificado(false);
+		return this.repo.save(nuevoUsuario);
 	}
 
 	@Override

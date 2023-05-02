@@ -1,59 +1,30 @@
-package com.ohMyDog.OhMyDog.Entity;
+package com.ohMyDog.OhMyDog.DTO;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
+import com.ohMyDog.OhMyDog.Entity.Mascota;
+import com.ohMyDog.OhMyDog.Entity.Usuario;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "mascota")
-public class Mascota {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+public class MascotaDTO {
+
 	private int id;
-	
-	@Column(name = "borrado")
 	private boolean borrado;
-
-	@Column(name = "nombre")
 	private String nombre;
-
-	@Column(name = "raza")
 	private String raza;
-	
-	@Column(name = "edad")
 	private String edad;
-	
-	@Column(name = "tamaño")
 	private String tamaño;
-	
-	@Column(name = "caracteristicas")
 	private String caracteristicas;
-	
-	@Column(name = "foto")
 	private String foto;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;
-
 	
-	
-	
-	
-	public Mascota() {
+	public MascotaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Mascota(MascotaDTO mascota) {
+	public MascotaDTO(Mascota mascota) {
 		this.setId(mascota.getId());
 		this.setBorrado(mascota.isBorrado());
 		this.setNombre(mascota.getNombre());
@@ -62,8 +33,10 @@ public class Mascota {
 		this.setTamaño(mascota.getTamaño());
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
+		//this.setUsuario(new Usuario());
+		
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -78,6 +51,14 @@ public class Mascota {
 
 	public void setBorrado(boolean borrado) {
 		this.borrado = borrado;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getRaza() {
@@ -120,14 +101,6 @@ public class Mascota {
 		this.foto = foto;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -136,5 +109,4 @@ public class Mascota {
 		this.usuario = usuario;
 	}
 
-	
 }

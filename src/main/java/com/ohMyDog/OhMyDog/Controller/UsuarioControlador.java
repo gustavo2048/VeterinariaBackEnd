@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ohMyDog.OhMyDog.DTO.UsuarioDTO;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
 
@@ -25,7 +26,7 @@ public class UsuarioControlador {
 	
 	@PostMapping
 	@RequestMapping(value="crearUsuario", method = RequestMethod.POST )
-	public ResponseEntity<?> crearUsuario(@RequestBody Usuario usuario){
+	public ResponseEntity<?> crearUsuario(@RequestBody UsuarioDTO usuario){
 		Usuario usuarioCreado = this.usuarioService.crearUsuario(usuario);
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioCreado);
 	}
