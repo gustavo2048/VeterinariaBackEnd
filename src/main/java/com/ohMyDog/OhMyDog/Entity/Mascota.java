@@ -42,6 +42,7 @@ public class Mascota {
 	@Column(name = "foto")
 	private String foto;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;
 
