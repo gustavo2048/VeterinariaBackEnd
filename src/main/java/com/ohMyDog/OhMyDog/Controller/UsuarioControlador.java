@@ -40,10 +40,10 @@ public class UsuarioControlador {
 		return ResponseEntity.ok(listadoUsuarios);
 	}
 	
-	@GetMapping
+	@PostMapping
 	@RequestMapping(value="modoficarUsuario", method = RequestMethod.POST )
-	public Usuario modificarUsuario(Usuario usuario){
-		Usuario usuario2 = this.usuarioService.modificarUsuario(usuario);
+	public ResponseEntity<?> modificarUsuario(@RequestBody Usuario usuario){
+		 Usuario usuario2 = this.usuarioService.modificarUsuario(usuario);
 		return ResponseEntity.ok(usuario2);
 	}
 }
