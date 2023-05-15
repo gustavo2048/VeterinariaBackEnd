@@ -34,7 +34,7 @@ public class usuarioServiceIMPL implements UsuarioService {
 	@Override
 	public Usuario modificarUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.repo.save(usuario);
 	}
 
 	@Override

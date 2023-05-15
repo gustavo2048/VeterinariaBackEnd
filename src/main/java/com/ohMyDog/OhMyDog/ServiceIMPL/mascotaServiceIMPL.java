@@ -34,6 +34,16 @@ public class mascotaServiceIMPL implements MascotaService {
 		return this.repo.save(nuevaMascota);
 		
 	}
+	
+	@Override
+	public List<Mascota> consultarMascotasPorIdDuenio(int id) {
+		// TODO Auto-generated method stub	
+		List<Mascota> nuevo = this.repo.consultarMascotasPorIdDuenio(id);
+		return (List<Mascota>)this.repo.consultarMascotasPorIdDuenio(id);	 
+		
+	}
+	
+
 
 	@Override
 	public Mascota modificarMascota(Mascota mascota) {
