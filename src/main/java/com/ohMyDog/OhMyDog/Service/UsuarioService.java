@@ -12,6 +12,7 @@ public interface UsuarioService {
 	public Usuario crearUsuario(UsuarioDTO usuario);
 	public Usuario modificarUsuario(Usuario usuario);
 	public Usuario BuscarUsuario(int id);
+	public Usuario buscarUsuarioXEmail(String email);
 	public void EliminarUsuario(int id);
 	
 }

@@ -49,4 +49,9 @@ public class usuarioServiceIMPL implements UsuarioService {
 
 	}
 
+	@Override
+	public Usuario buscarUsuarioXEmail(String email) {
+		return repo.buscarUsuarioEmail(email);
+	}
+
 }

@@ -46,4 +46,26 @@ public class UsuarioControlador {
 		 Usuario usuario2 = this.usuarioService.modificarUsuario(usuario);
 		return ResponseEntity.ok(usuario2);
 	}
+
+	@PostMapping
+	@RequestMapping(value="Login", method = RequestMethod.POST )
+	public ResponseEntity<?> Login(@RequestBody UsuarioDTO user){
+		Usuario u = this.usuarioService.buscarUsuarioXEmail(user.getEmail());
+		System.out.print(u);
+		if(u == null) {
+			u= new Usuario();
+			u.setId(-1); // usuario no existe, le mandamos el id -1;
+			return ResponseEntity.ok(u);}
+		else {
+			if(u.getPassword().equals(user.getPassword()))
+				return ResponseEntity.ok(u);
+			else {
+				u.setId(-2); // si el usuario existe pero la contra es invalida
+				return ResponseEntity.ok(u);
+				}
+		}
+	
+	}
+	
+
 }
