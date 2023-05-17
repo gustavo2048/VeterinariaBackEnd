@@ -33,8 +33,8 @@ public class Mascota {
 	@Column(name = "edad")
 	private String edad;
 	
-	@Column(name = "tamaño")
-	private String tamaño;
+	@Column(name = "tamanio")
+	private String tamanio;
 	
 	@Column(name = "caracteristicas")
 	private String caracteristicas;
@@ -60,7 +60,7 @@ public class Mascota {
 		this.setNombre(mascota.getNombre());
 		this.setRaza(mascota.getRaza());
 		this.setEdad(mascota.getEdad());
-		this.setTamaño(mascota.getTamaño());
+		this.setTamanio(mascota.getTamanio());
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
 	}
@@ -97,12 +97,12 @@ public class Mascota {
 		this.edad = edad;
 	}
 
-	public String getTamaño() {
-		return tamaño;
+	public String getTamanio() {
+		return tamanio;
 	}
 
-	public void setTamaño(String tamaño) {
-		this.tamaño = tamaño;
+	public void setTamanio(String tamanio) {
+		this.tamanio = tamanio;
 	}
 
 	public String getCaracteristicas() {

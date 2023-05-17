@@ -15,7 +15,7 @@ public class MascotaDTO {
 	private String nombre;
 	private String raza;
 	private String edad;
-	private String tamaño;
+	private String tamanio;
 	private String caracteristicas;
 	private String foto;
 	private Usuario usuario;
@@ -30,7 +30,7 @@ public class MascotaDTO {
 		this.setNombre(mascota.getNombre());
 		this.setRaza(mascota.getRaza());
 		this.setEdad(mascota.getEdad());
-		this.setTamaño(mascota.getTamaño());
+		this.setTamanio(mascota.getTamanio());
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
 		//this.setUsuario(new Usuario());
@@ -77,12 +77,12 @@ public class MascotaDTO {
 		this.edad = edad;
 	}
 
-	public String getTamaño() {
-		return tamaño;
+	public String getTamanio() {
+		return tamanio;
 	}
 
-	public void setTamaño(String tamaño) {
-		this.tamaño = tamaño;
+	public void setTamanio(String tamanio) {
+		this.tamanio = tamanio;
 	}
 
 	public String getCaracteristicas() {
