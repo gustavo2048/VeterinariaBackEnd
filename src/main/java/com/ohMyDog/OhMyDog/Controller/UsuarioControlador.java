@@ -66,6 +66,24 @@ public class UsuarioControlador {
 		}
 	
 	}
+	@PostMapping
+	@RequestMapping(value="editarPerfil", method = RequestMethod.POST )
+		public ResponseEntity<?> editarPerfil(@RequestBody UsuarioDTO user){	
+			Usuario u = this.usuarioService.buscarUsuarioDni(user.getDni());
+			if (u == null || u.getId() == user.getId()) {
+			    //significa que puede poner ese dni
+			    Usuario us = new Usuario(user);
+			    this.usuarioService.modificarUsuario(us);				
+			    return ResponseEntity.ok(us);
+			}else {
+				u.setId(-2); // si el dni existe pero la contra es invalida
+			    return ResponseEntity.ok(u);
+			    }	
+
+		}
+
+	
+	
 	
 
 }

@@ -9,8 +9,12 @@ import com.ohMyDog.OhMyDog.Entity.Usuario;
 
 public interface UsuarioRepositoty extends CrudRepository<Usuario, Integer>{
 
-@Query
+	@Query
 	(value="SELECT * FROM usuario u WHERE u.email = ?1",nativeQuery=true)
 	public Usuario buscarUsuarioEmail(String email);
+	
+	@Query
+	(value="SELECT * FROM usuario u WHERE u.dni = ?1",nativeQuery=true)
+	public Usuario  buscarUsuarioDni(String dni);
 
 }

@@ -53,5 +53,9 @@ public class usuarioServiceIMPL implements UsuarioService {
 	public Usuario buscarUsuarioXEmail(String email) {
 		return repo.buscarUsuarioEmail(email);
 	}
+	@Override
+	public Usuario buscarUsuarioDni(String dni) {
+		return repo.buscarUsuarioDni(dni);
+	}
 
 }
