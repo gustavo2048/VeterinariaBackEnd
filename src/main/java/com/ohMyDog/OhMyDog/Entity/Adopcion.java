@@ -27,6 +27,9 @@ public class Adopcion {
 	@Column(name = "adoptado")
 	private boolean adoptado;
 	
+	@Column(name = "titulo")
+	private String titulo;
+	
 	@Column(name = "motivacion")
 	private String motivacion;
 	
@@ -59,6 +62,13 @@ public class Adopcion {
 
 	public void setBorrado(boolean borrado) {
 		this.borrado = borrado;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public boolean isAdoptado() {

@@ -39,8 +39,8 @@ public class usuarioServiceIMPL implements UsuarioService {
 
 	@Override
 	public Usuario BuscarUsuario(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.repo.findById(id).get();
 	}
 
 	@Override
