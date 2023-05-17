@@ -18,6 +18,7 @@ public class MascotaDTO {
 	private String tamanio;
 	private String caracteristicas;
 	private String foto;
+	private int usuarioId;
 	private Usuario usuario;
 	
 	public MascotaDTO() {
@@ -35,6 +36,9 @@ public class MascotaDTO {
 		this.setFoto(mascota.getFoto());
 		//this.setUsuario(new Usuario());
 		
+	}
+	public int getUsuarioId() {
+		return usuarioId;
 	}
 
 	public int getId() {

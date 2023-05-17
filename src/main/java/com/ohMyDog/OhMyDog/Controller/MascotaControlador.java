@@ -19,6 +19,7 @@ import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
+import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -28,6 +29,9 @@ public class MascotaControlador {
 	
 	@Autowired
 	private mascotaServiceIMPL mascotaService;
+	
+	@Autowired
+	private usuarioServiceIMPL usuarioService;
 	
 	@PostMapping
 	@RequestMapping(value="crearMascota", method = RequestMethod.POST )
@@ -49,5 +53,16 @@ public class MascotaControlador {
 		List<Mascota> listadoMascotas = this.mascotaService.consultarMascotasPorIdDuenio(id);
 		return ResponseEntity.ok(listadoMascotas);
 	}
+	
+	@PostMapping
+	@RequestMapping(value="modificarMascota", method = RequestMethod.POST )
+	public ResponseEntity<?> modificarMascota(@RequestBody MascotaDTO mascota){	
+		Mascota mascota2 = new Mascota(mascota);
+		Usuario user = this.usuarioService.BuscarUsuario(mascota.getUsuarioId());
+		mascota2.setUsuario(user);
+		this.mascotaService.modificarMascota(mascota2);		
+		return ResponseEntity.ok(mascota2);
+	}
+
 
 }
