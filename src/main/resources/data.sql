@@ -11,7 +11,8 @@ INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombr
 VALUES ('Benites',false,'539392934','calle32','benites@gmail.com','Carlos',1234567,'CLIENTE','221343443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('Bellino',false,'449392934','calle342','bellino@gmail.com','Fernanda',1234567,'CLIENTE','22134223443',false);
-
+INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
+VALUES ('vete',false,'449392934','calle3w2','pablo@gmail.com','Pablo',1234567,'VETERINARIO','22134223443',false);
 -- TABLA MASCOTA
 INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamaño`,`usuario_id`) 
 VALUES (false, 'caracteristica1 gris', '12años', 'foto1.jpg', 'tito', 'razaDogo', 'Tamaño grande',1 );
