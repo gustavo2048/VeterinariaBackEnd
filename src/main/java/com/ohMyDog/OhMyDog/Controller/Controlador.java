@@ -43,6 +43,7 @@ public class Controlador {
 		Usuario nuevoUsuario = usuarioService.crearUsuario(usuario);
 		MascotaDTO nuevaMascota = new MascotaDTO(usuario.getMascotas().get(0));
 		nuevaMascota.setUsuario(nuevoUsuario);
+		System.out.println("lskdlsdklsk");
 		Mascota nuevaMascota2 = this.mascotaService.crearMascota(nuevaMascota);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(nuevaMascota2);
