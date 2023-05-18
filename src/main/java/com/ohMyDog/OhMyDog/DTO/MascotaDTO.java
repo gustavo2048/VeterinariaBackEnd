@@ -37,12 +37,16 @@ public class MascotaDTO {
 		//this.setUsuario(new Usuario());
 		
 	}
-	public int getUsuarioId() {
-		return usuarioId;
-	}
 
 	public int getId() {
 		return id;
+	}
+	
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(int id) {
+		this.usuarioId=id;
 	}
 
 	public void setId(int id) {
