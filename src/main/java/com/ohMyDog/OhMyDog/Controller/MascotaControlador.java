@@ -31,9 +31,7 @@ public class MascotaControlador {
 	private mascotaServiceIMPL mascotaService;
 	@Autowired
 	private usuarioServiceIMPL usuarioService;
-	
-	@Autowired
-	private usuarioServiceIMPL usuarioService;
+
 	
 	@PostMapping
 	@RequestMapping(value="crearMascota", method = RequestMethod.POST )
