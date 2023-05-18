@@ -37,17 +37,7 @@ public class Controlador {
 	@Autowired
 	private mascotaServiceIMPL mascotaService;
 	
-	@PostMapping
-	@RequestMapping(value="registrarCliente", method = RequestMethod.POST )
-	public ResponseEntity<?> crearCliente(@RequestBody UsuarioDTO usuario){
-		Usuario nuevoUsuario = usuarioService.crearUsuario(usuario);
-		MascotaDTO nuevaMascota = new MascotaDTO(usuario.getMascotas().get(0));
-		nuevaMascota.setUsuario(nuevoUsuario);
-		Mascota nuevaMascota2 = this.mascotaService.crearMascota(nuevaMascota);
-		
-		return ResponseEntity.status(HttpStatus.CREATED).body(nuevaMascota2);
-	}
-		
+
 		
 	@DeleteMapping
 	@RequestMapping(value="eliminarCliente/{id}", method = RequestMethod.DELETE )
