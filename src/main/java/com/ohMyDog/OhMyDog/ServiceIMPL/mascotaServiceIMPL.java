@@ -17,6 +17,8 @@ public class mascotaServiceIMPL implements MascotaService {
 
 	@Autowired
 	private MascotaRepository repo;
+	@Autowired
+	private UsuarioRepositoty repoU;
 	
 	
 	@Override
@@ -44,8 +46,8 @@ public class mascotaServiceIMPL implements MascotaService {
 
 	@Override
 	public Mascota modificarMascota(Mascota mascota) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO Auto-generated method stub	
+		return this.repo.save(mascota);
 	}
 
 	@Override
