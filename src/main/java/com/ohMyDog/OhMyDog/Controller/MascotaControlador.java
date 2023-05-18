@@ -19,6 +19,7 @@ import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
+import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -28,14 +29,26 @@ public class MascotaControlador {
 	
 	@Autowired
 	private mascotaServiceIMPL mascotaService;
+	@Autowired
+	private usuarioServiceIMPL usuarioService;
 	
 	@PostMapping
 	@RequestMapping(value="crearMascota", method = RequestMethod.POST )
 	public ResponseEntity<?> crearMascota(@RequestBody MascotaDTO mascota){
-		Mascota mascotaCreada = this.mascotaService.crearMascota(mascota);
+		Usuario user = this.usuarioService.BuscarUsuario(mascota.getUsuarioId());
+		Mascota mascta = new Mascota(mascota);
+		mascta.setUsuario(user);
+		Mascota mascotaCreada = this.mascotaService.crearMascota(mascta);
 		return ResponseEntity.status(HttpStatus.CREATED).body(mascotaCreada);
 	}
+	@PostMapping
+	@RequestMapping(value="buscar", method = RequestMethod.POST )
+	public ResponseEntity<?> buscar(@RequestBody MascotaDTO mascota){
+		///Mascota mascotaCreada = this.mascotaService.crearMascota(mascota);
+		return ResponseEntity.status(HttpStatus.CREATED).body("lskdlskdlksd");
+	}
 	
+
 	@GetMapping
 	@RequestMapping(value="consultarMascotas", method = RequestMethod.GET )
 	public ResponseEntity<?> consultarMascotas(){

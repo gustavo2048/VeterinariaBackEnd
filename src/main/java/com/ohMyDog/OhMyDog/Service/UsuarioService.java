@@ -13,6 +13,7 @@ public interface UsuarioService {
 	public Usuario modificarUsuario(Usuario usuario);
 	public Usuario BuscarUsuario(int id);
 	public Usuario buscarUsuarioXEmail(String email);
+	public Usuario  buscarUsuarioDni(String dni);
 	public void EliminarUsuario(int id);
 	
 }

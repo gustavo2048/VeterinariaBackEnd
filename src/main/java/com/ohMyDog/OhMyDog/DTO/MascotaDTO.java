@@ -18,6 +18,7 @@ public class MascotaDTO {
 	private String tamaño;
 	private String caracteristicas;
 	private String foto;
+	private int usuarioId;
 	private Usuario usuario;
 	
 	public MascotaDTO() {
@@ -39,6 +40,13 @@ public class MascotaDTO {
 
 	public int getId() {
 		return id;
+	}
+	
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(int id) {
+		this.usuarioId=id;
 	}
 
 	public void setId(int id) {

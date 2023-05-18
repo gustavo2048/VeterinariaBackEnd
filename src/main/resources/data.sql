@@ -1,18 +1,23 @@
 -- TABLA USUARIOS (AGREGAR VETERINARIOS)
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Suarez',false,'339392934','calle123','suarez@gmail.com','Ximena',1234567,'CLIENTE','22134223443',false);
+VALUES ('Suarez',false,'111111111','calle123','suarez@gmail.com','Ximena',1234567,'CLIENTE','22134223443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Perez',false,'3353492934','calle163','perez@gmail.com','Carla',1234567,'CLIENTE','22134223443',false);
+VALUES ('Perez',false,'222222222','calle163','perez@gmail.com','Carla',1234567,'CLIENTE','22134223443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Rodriguez',false,'339392934','calle123','rodriguez@gmail.com','Yamila',1234567,'CLIENTE','22134223443',false);
+VALUES ('Rodriguez',false,'33333333','calle123','rodriguez@gmail.com','Yamila',1234567,'CLIENTE','22134223443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Romero',false,'439392934','calle23','romero@gmail.com','victoria',1234567,'CLIENTE','22134223443',false);
+VALUES ('Romero',false,'444444444','calle23','romero@gmail.com','victoria',1234567,'CLIENTE','22134223443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Benites',false,'539392934','calle32','benites@gmail.com','Carlos',1234567,'CLIENTE','221343443',false);
+VALUES ('Benites',false,'55555555','calle32','benites@gmail.com','Carlos',1234567,'CLIENTE','221343443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('Bellino',false,'449392934','calle342','bellino@gmail.com','Fernanda',1234567,'CLIENTE','22134223443',false);
+
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('vete',false,'449392934','calle3w2','pablo@gmail.com','Pablo',1234567,'VETERINARIO','22134223443',false);
+
+
+
+
 -- TABLA MASCOTA
 INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamaño`,`usuario_id`) 
 VALUES (false, 'caracteristica1 gris', '12años', 'foto1.jpg', 'tito', 'razaDogo', 'Tamaño grande',1 );
