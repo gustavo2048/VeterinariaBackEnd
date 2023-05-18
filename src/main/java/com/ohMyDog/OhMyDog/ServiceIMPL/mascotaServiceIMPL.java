@@ -28,12 +28,9 @@ public class mascotaServiceIMPL implements MascotaService {
 	}
 
 	@Override
-	public Mascota crearMascota(MascotaDTO mascota) {
+	public Mascota crearMascota(Mascota mascota) {
 		// TODO Auto-generated method stub
-		Mascota nuevaMascota = new Mascota(mascota);
-		nuevaMascota.setUsuario(mascota.getUsuario());
-		
-		return this.repo.save(nuevaMascota);
+		return this.repo.save(mascota);
 		
 	}
 	

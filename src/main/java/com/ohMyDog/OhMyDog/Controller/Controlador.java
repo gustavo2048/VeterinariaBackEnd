@@ -44,9 +44,10 @@ public class Controlador {
 		MascotaDTO nuevaMascota = new MascotaDTO(usuario.getMascotas().get(0));
 		nuevaMascota.setUsuario(nuevoUsuario);
 		System.out.println("lskdlsdklsk");
-		Mascota nuevaMascota2 = this.mascotaService.crearMascota(nuevaMascota);
+		//Mascota nuevaMascota2 = this.mascotaService.crearMascota(nuevaMascota);
+
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(nuevaMascota2);
+		return ResponseEntity.status(HttpStatus.CREATED).body(nuevaMascota);
 	}
 		
 		

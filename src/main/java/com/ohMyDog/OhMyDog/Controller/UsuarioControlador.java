@@ -83,7 +83,36 @@ public class UsuarioControlador {
 		}
 
 	
-	
-	
-
+	@PostMapping
+	@RequestMapping(value="Registrar", method = RequestMethod.POST )
+	public ResponseEntity<?> Registrar(@RequestBody UsuarioDTO user){
+		Usuario uEmail = this.usuarioService.buscarUsuarioXEmail(user.getEmail());
+		Usuario uDni = this.usuarioService.buscarUsuarioDni(user.getDni());
+		if(uEmail ==null  && uDni==null ) {
+			
+			user.setRol("CLIENTE");
+			Usuario user2 = this.usuarioService.crearUsuario(user);//crea usuario y lo devuelve
+			return ResponseEntity.ok(user2);
+			}
+		else {
+				if(uEmail.getEmail().equals(user.getEmail())  && !uDni.getDni().equals(user.getDni()) ) {
+					Usuario u= new Usuario(user);
+					u.setId(-1);// dni existe en la base de datos
+					return ResponseEntity.ok(u);
+					}
+				else {
+						if(!uEmail.getEmail().equals(user.getEmail())  && uDni.getDni().equals(user.getDni()) ) {
+							Usuario u= new Usuario(user);
+							u.setId(-2);//email existe en la base de datos
+							return ResponseEntity.ok(u);
+					}
+				
+						else {
+							Usuario u = new Usuario(user);
+							u.setId(-3);//tanto el dni como el email existen en la base de datos
+							return ResponseEntity.ok(u);
+						}
+		}
+		}
+	}
 }
