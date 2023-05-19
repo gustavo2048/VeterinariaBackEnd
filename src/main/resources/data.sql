@@ -11,12 +11,8 @@ INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombr
 VALUES ('Benites',false,'55555555','calle32','benites@gmail.com','Carlos',1234567,'CLIENTE','221343443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('Bellino',false,'449392934','calle342','bellino@gmail.com','Fernanda',1234567,'CLIENTE','22134223443',false);
-
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('vete',false,'449392934','calle3w2','pablo@gmail.com','Pablo',1234567,'VETERINARIO','22134223443',false);
-
-
-
 
 -- TABLA MASCOTA
 INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamanio`,`usuario_id`) 
@@ -49,3 +45,13 @@ INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creac
 VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Tu mejor Amigo', NULL);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
 VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'yo se que queres un perrito', NULL);
+
+-- TABLA PASEADORES
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
