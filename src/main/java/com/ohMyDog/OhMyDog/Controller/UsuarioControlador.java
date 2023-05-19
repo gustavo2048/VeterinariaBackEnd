@@ -95,13 +95,13 @@ public class UsuarioControlador {
 			return ResponseEntity.ok(user2);
 			}
 		else {
-				if(uEmail.getEmail().equals(user.getEmail())  && !uDni.getDni().equals(user.getDni()) ) {
+				if(uEmail ==null && uDni.getDni().equals(user.getDni()) ) {
 					Usuario u= new Usuario(user);
 					u.setId(-1);// dni existe en la base de datos
 					return ResponseEntity.ok(u);
 					}
 				else {
-						if(!uEmail.getEmail().equals(user.getEmail())  && uDni.getDni().equals(user.getDni()) ) {
+						if(uEmail.getEmail().equals(user.getEmail())  && uDni==null)  {
 							Usuario u= new Usuario(user);
 							u.setId(-2);//email existe en la base de datos
 							return ResponseEntity.ok(u);

@@ -34,17 +34,17 @@ VALUES (false, 'caracteristica6 gris', '1años', 'foto6.jpg', 'Rocco4', 'Pitbull
 
 -- TABLA ADOPCIONES
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
-VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Adoptame porfi!', NULL);
+VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Adoptame porfi!', 1);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
-VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Soy re bueno', NULL);
+VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Soy re bueno', 3);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
-VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Tu mejor Amigo', NULL);
+VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Tu mejor Amigo', 2);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
 VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'yo se que queres un perrito', NULL);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
-VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Adoptame porfi!', NULL);
+VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Adoptame porfi!', 1);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
-VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Soy re bueno', NULL);
+VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Soy re bueno', 1);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 
 VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Tu mejor Amigo', NULL);
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivacion`, `observacion`, `titulo`, `id_usuario_creo`) 

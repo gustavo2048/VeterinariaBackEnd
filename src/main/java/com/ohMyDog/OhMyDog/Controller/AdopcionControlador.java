@@ -32,7 +32,7 @@ public class AdopcionControlador {
 	
 	@PostMapping
 	@RequestMapping(value="crearAdopcion", method = RequestMethod.POST )
-	public ResponseEntity<?> crearCliente(@RequestBody Adopcion adopcion){
+	public ResponseEntity<?> crearAdopcion(@RequestBody Adopcion adopcion){
 		Adopcion nuevaAdopcion = adopcionService.crearAdopcion(adopcion);		
 	
 		System.out.println("lskdlsdklsk");
@@ -45,7 +45,7 @@ public class AdopcionControlador {
 
 	@GetMapping
 	@RequestMapping(value="listarAdopciones", method = RequestMethod.GET )
-	public ResponseEntity<?> consultarAdopcion(){
+	public ResponseEntity<?> listarAdopciones(){
 		List<Adopcion> listadoAdopcion = this.adopcionService.listarAdopciones();
 		return ResponseEntity.ok(listadoAdopcion);
 	}

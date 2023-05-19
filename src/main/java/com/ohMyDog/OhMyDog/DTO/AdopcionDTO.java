@@ -24,8 +24,9 @@ public class AdopcionDTO {
 	private Usuario usuario;
 	
 	
-	
-	
+	public AdopcionDTO() {
+		
+	}
 	
 	public AdopcionDTO(Adopcion adopcion) {	
 		this.id = adopcion.getId();
