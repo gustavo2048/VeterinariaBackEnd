@@ -10,7 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 public class PaseadorDTO {
 	private int id;
-	private Date fechaCreacion;
+	//private Date fechaCreacion;
 	private boolean borrado;
 	private String zona;
 	private String nombre;

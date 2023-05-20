@@ -47,11 +47,6 @@ INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creac
 VALUES (NULL, b'00000', b'00000', 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'yo se que queres un perrito', NULL);
 
 -- TABLA PASEADORES
+
 INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
-VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
-INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
-VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
-INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
-VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
-INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
-VALUES (NULL, NULL, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
+VALUES (NULL, false, 'Lomas', b'00000', 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
