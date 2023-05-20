@@ -1,6 +1,6 @@
 -- TABLA USUARIOS (AGREGAR VETERINARIOS)
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Suarez',false,'111111111','calle123','suarez@gmail.com','Ximena',1234567,'CLIENTE','22134223443',false);
+VALUES ('Suarez',false,'111111111','calle123','suarez@gmail.com','Ximena',1234567,'CLIENTE','22134223443',true);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('Perez',false,'222222222','calle163','perez@gmail.com','Carla',1234567,'CLIENTE','22134223443',false);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
@@ -28,7 +28,7 @@ VALUES (false, 'caracteristica5 gris', '10años', 'foto5.jpg', 'Rocco3', 'Doberm
 INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`) 
 VALUES (false, 'caracteristica6 gris', '1años', 'foto6.jpg', 'Rocco4', 'Pitbull', 'Tamaño mediano',6);
 
--- TABLA ADOPCIONES
+
 -- TABLA ADOPCIONES
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
 VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Adoptamee', '1');
@@ -38,30 +38,9 @@ INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creac
 VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Se que me queres', '2');
 INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
 VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Adoptamee', '2');
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false, false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Adoptame porfi!', 1);
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false, false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Soy re bueno', 3);
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false,false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Tu mejor Amigo', 2);
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false, false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'yo se que queres un perrito', NULL);
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false,false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Soy re bueno', 1);
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false, false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'Tu mejor Amigo', NULL);
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`) 
--- VALUES (NULL, false, false, 'Es un perrito re lindo.', NULL, 'Tuvimos muchas crías, no podemos quedárnoslo.', 'Esta perfectamente sano.', 'yo se que queres un perrito', NULL);
 
 -- TABLA PASEADORES
 
 INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
 VALUES (NULL, false, 'Lomas', false, 'ALTO CAPO', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
--- VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Adoptamee', '1');
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
--- VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Se que me queres', '1');
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
--- VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Se que me queres', '2');
--- INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
--- VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Adoptamee', '2');
+
