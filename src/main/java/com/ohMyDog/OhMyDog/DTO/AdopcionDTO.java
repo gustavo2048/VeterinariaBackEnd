@@ -21,21 +21,21 @@ public class AdopcionDTO {
 	private String motivo;
 	private Date fechaCreacion;
 	private int usuarioId;
-	private Usuario usuario;
+	//private Usuario usuario;	
 	
 	
-	
-	
-	
+	public AdopcionDTO() {
+		
+	}
 	public AdopcionDTO(Adopcion adopcion) {	
-		this.id = adopcion.getId();
-		this.adoptado = adopcion.isAdoptado();
-		this.borrado = adopcion.isBorrado();
-		this.titulo = adopcion.getTitulo();
-		this.descripcion = adopcion.getDescripcion();
-		this.motivo = adopcion.getMotivacion();
-		this.fechaCreacion = (Date) adopcion.getFechaCreacion();
-		//this.usuarioId = adopcion.getUsuarioId();
+		this.setId(adopcion.getId());
+		this.setAdoptado(adopcion.isAdoptado());
+		this.setBorrado(adopcion.isBorrado());
+		this.setTitulo(adopcion.getTitulo());
+		this.setDescripcion(adopcion.getDescripcion());
+		this.setMotivo(adopcion.getMotivo());
+		this.setFechaCreacion(adopcion.getFechaCreacion());
+		this.setUsuarioId(adopcion.getUsuarioId());
 		//this.usuario = usuario;
 	}
 	public int getId() {
@@ -80,19 +80,21 @@ public class AdopcionDTO {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+
 	public int getUsuarioId() {
 		return usuarioId;
 	}
-	public void setUsuarioId(int usuarioId) {
-		this.usuarioId = usuarioId;
+	public void setUsuarioId(int id) {
+		this.usuarioId=id;
 	}
-	public Usuario getUsuario() {
+
+/*	public Usuario getUsuario() {
 		return usuario;
 	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-	
+	}*/
 	
 	
 

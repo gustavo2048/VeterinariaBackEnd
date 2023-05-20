@@ -1,7 +1,10 @@
 package com.ohMyDog.OhMyDog.Entity;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ohMyDog.OhMyDog.DTO.AdopcionDTO;
+import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 
+import java.sql.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "adopcion")
@@ -30,12 +34,8 @@ public class Adopcion {
 	@Column(name = "titulo")
 	private String titulo;
 	
-	@Column(name = "motivacion")
-	private String motivacion;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUsuarioCreo")
-	private  Usuario usuarioCreo;
+	@Column(name = "motivo")
+	private String motivo;
 	
 	@Column(name = "observacion")
 	private String observacion;
@@ -45,7 +45,33 @@ public class Adopcion {
 	
 	@Column(name = "fechaCreacion")
 	private Date fechaCreacion;
+	
+	@Column(name = "usuarioId")
+	private  int usuarioId;
+	
+/*	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Usuario usuario;*/
+	
 
+
+	
+	
+	
+	public Adopcion(){
+		
+	}
+	public Adopcion(AdopcionDTO adopcion) {
+		this.setId(adopcion.getId());
+		this.setAdoptado(adopcion.isAdoptado());
+		this.setBorrado(adopcion.isBorrado());
+		this.setTitulo(adopcion.getTitulo());
+		this.setDescripcion(adopcion.getDescripcion());
+		this.setMotivo(adopcion.getMotivo());
+		this.setFechaCreacion(adopcion.getFechaCreacion());
+		this.setUsuarioId(adopcion.getUsuarioId());
+	}
+	
 	
 	
 	public int getId() {
@@ -79,21 +105,13 @@ public class Adopcion {
 		this.adoptado = adoptado;
 	}
 
-	public String getMotivacion() {
-		return motivacion;
+	public String getMotivo() {
+		return motivo;
 	}
 
-	public void setMotivacion(String motivacion) {
-		this.motivacion = motivacion;
-	}
-
-	public Usuario getUsuarioCreo() {
-		return usuarioCreo;
-	}
-
-	public void setUsuarioCreo(Usuario usuarioCreo) {
-		this.usuarioCreo = usuarioCreo;
-	}
+	public void setMotivo(String motivo) {
+		this.motivo = motivo;
+	}	
 
 	public String getObservacion() {
 		return observacion;
@@ -118,5 +136,22 @@ public class Adopcion {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+	
+	public int getUsuarioId() {
+		return this.usuarioId;
+	}
+
+	public void setUsuarioId(int usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+	
+/*	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}*/
+
 	
 }
