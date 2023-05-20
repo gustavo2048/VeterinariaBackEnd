@@ -40,14 +40,8 @@ public class MascotaDTO {
 
 	public int getId() {
 		return id;
-	}
-	
-	public int getUsuarioId() {
-		return usuarioId;
-	}
-	public void setUsuarioId(int id) {
-		this.usuarioId=id;
-	}
+	}	
+
 
 	public void setId(int id) {
 		this.id = id;
@@ -107,6 +101,13 @@ public class MascotaDTO {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+	
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(int id) {
+		this.usuarioId=id;
 	}
 
 	public Usuario getUsuario() {
