@@ -1,5 +1,7 @@
 package com.ohMyDog.OhMyDog.Entity;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 
@@ -11,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -47,6 +50,9 @@ public class Mascota {
 	private Usuario usuario;
 
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
+	private List<Turnos> turnos;
 	
 	
 	
