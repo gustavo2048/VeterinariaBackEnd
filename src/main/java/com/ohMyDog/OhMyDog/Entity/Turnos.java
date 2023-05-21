@@ -2,6 +2,7 @@ package com.ohMyDog.OhMyDog.Entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ohMyDog.OhMyDog.DTO.TurnosDTO;
 
 import jakarta.persistence.Column;
@@ -45,14 +46,15 @@ public class Turnos {
 	private Date fechaAsignada;
 	
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idMascota")
-	private Mascota Mascota;
+	private Mascota mascota;
 	
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUsuarioSolicitante")
-	private Usuario UsuarioSolicitante;
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Usuario usuario;
 
 	
 	public Turnos() {
@@ -139,26 +141,22 @@ public class Turnos {
 		this.fechaAsignada = fechaAsignada;
 	}
 
-
 	public Mascota getMascota() {
-		return Mascota;
+		return mascota;
 	}
-
 
 	public void setMascota(Mascota mascota) {
-		Mascota = mascota;
-	}
-
-
-	public Usuario getUsuarioSolicitante() {
-		return UsuarioSolicitante;
-	}
-
-
-	public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
-		UsuarioSolicitante = usuarioSolicitante;
+		this.mascota = mascota;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Date getFechaSolicitada() {
 		return fechaSolicitada;
 	}

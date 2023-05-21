@@ -74,4 +74,9 @@ public class turnoServiceIMPL implements TurnosService {
 		return this.repo.verificarTurnoExistenteMismoDia(idMascota, idUsuario, fechaSolicitud);
 	}
 
+	@Override
+	public List<Turnos> misTurnosPendientes(int id) {
+		return this.repo.misTurnosPendientes(id);
+	}
+
 }

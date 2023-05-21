@@ -58,6 +58,9 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<Mascota> mascotas;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	private List<Turnos> turnos;
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub

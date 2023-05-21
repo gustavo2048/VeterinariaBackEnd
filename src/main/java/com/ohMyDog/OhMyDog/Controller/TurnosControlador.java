@@ -2,6 +2,7 @@ package com.ohMyDog.OhMyDog.Controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,9 +71,9 @@ public class TurnosControlador {
 					// Crear entity Turno asignando cada atributo
 					Turnos turnoSolicitud = new Turnos(turno);
 					turnoSolicitud.setMascota(pet);
-					turnoSolicitud.setUsuarioSolicitante(user);
+					turnoSolicitud.setUsuario(user);
 					turnoSolicitud.setBorrado(false);
-					turnoSolicitud.setEstadoSolicitud("SOLICITUD");
+					turnoSolicitud.setEstadoSolicitud("PENDIENTE");
 					Date hoy = new Date();
 					turnoSolicitud.setFechaCreado(hoy);
 					nuevoTurno = turnoService.crearTurno(turnoSolicitud);
@@ -88,15 +91,29 @@ public class TurnosControlador {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  //String a date
-		
-		//TODO: Recibo un turnoDTO con los datos de solicitud, id Usuario y id Mascota
-		
-		
-		
-		
-		
+
 		return ResponseEntity.status(HttpStatus.CREATED).body(nuevoTurno);
 		
+	}
+	
+	
+	@GetMapping
+	@RequestMapping(value="turnosPendientes/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> getTurnosPendientes(@PathVariable int id){
+		
+		System.out.println("##### se recibio el parametro");
+		System.out.println(id);
+		
+		List<Turnos> misTurnos = this.turnoService.misTurnosPendientes(id);
+		List<TurnosDTO> misTurnosDTO = new ArrayList<TurnosDTO>();
+//		for (Turnos turno: misTurnos) {
+//			TurnosDTO nuevoT = new TurnosDTO(turno);
+//			nuevoT.setMascota(this.mascotaService.BuscarMascota(id));
+//			misTurnosDTO.add(nuevoT);
+//		}
+		
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(misTurnos);
 	}
 
 }
