@@ -2,6 +2,8 @@ package com.ohMyDog.OhMyDog.Entity;
 
 import java.util.Date;
 
+import com.ohMyDog.OhMyDog.DTO.TurnosDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,6 +38,9 @@ public class Turnos {
 	@Column(name = "fechaCreado")
 	private Date fechaCreado;
 	
+	@Column(name = "fechaSolicitada")
+	private Date fechaSolicitada;
+	
 	@Column(name = "fechaAsignada")
 	private Date fechaAsignada;
 	
@@ -49,6 +54,18 @@ public class Turnos {
 	@JoinColumn(name = "idUsuarioSolicitante")
 	private Usuario UsuarioSolicitante;
 
+	
+	public Turnos() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Turnos(TurnosDTO turnoDTO) {
+		this.setBorrado(turnoDTO.isBorrado());
+		//this.estadoSolicitud() Este valor se seteara cuando se Hace la solicitud
+		this.setHorarioTentativo(turnoDTO.getHorarioTentativo());
+		this.setFechaSolicitada(turnoDTO.getFechaSolicitada());
+		this.setMotivo(turnoDTO.getMotivo());
+	}
 	
 	
 	
@@ -140,6 +157,15 @@ public class Turnos {
 
 	public void setUsuarioSolicitante(Usuario usuarioSolicitante) {
 		UsuarioSolicitante = usuarioSolicitante;
+	}
+	
+	public Date getFechaSolicitada() {
+		return fechaSolicitada;
+	}
+
+
+	public void setFechaSolicitada(Date fechaSolicitada) {
+		this.fechaSolicitada = fechaSolicitada;
 	}
 
 }

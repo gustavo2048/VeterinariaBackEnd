@@ -19,6 +19,8 @@ public class TurnosDTO implements Serializable {
 	
 	private Date fechaCreado;
 	
+	private Date fechaSolicitada;
+	
 	private Date fechaAsignada;
 
 	private int idMascota;
@@ -98,6 +100,14 @@ public class TurnosDTO implements Serializable {
 
 	public void setIdUsuarioSolicitante(int idUsuarioSolicitante) {
 		this.idUsuarioSolicitante = idUsuarioSolicitante;
+	}
+
+	public Date getFechaSolicitada() {
+		return fechaSolicitada;
+	}
+
+	public void setFechaSolicitada(Date fechaSolicitada) {
+		this.fechaSolicitada = fechaSolicitada;
 	}
 	
 

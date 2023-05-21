@@ -1,5 +1,8 @@
 package com.ohMyDog.OhMyDog.Controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ohMyDog.OhMyDog.DTO.TurnosDTO;
+import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Turnos;
+import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.turnoServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
@@ -36,15 +41,61 @@ public class TurnosControlador {
 	@PostMapping
 	@RequestMapping(value="crearTurno", method = RequestMethod.POST )
 	public ResponseEntity<?> crearTurno(@RequestBody  TurnosDTO turno){
-		//TODO: Recibo un turnoDTO con los datos de solicitud, id Usuario y id Mascota
-		// Busca el Usuario con id Usuario
-		// Buscar mascota con id mascota
-		// Crear entity Turno asignando cada atributo
+		//Inicializacion
+		Turnos nuevoTurno = new Turnos();
+		Date fechaSolicitadaDate;
+		List<Turnos> turnosExistentes;
 		
-		//EJEMPLO:::
-		List<Turnos> lisT = this.turnoService.listarTurnos();
-		System.out.println("consola de mostrar alfakjslKSDJF");
-		return ResponseEntity.status(HttpStatus.CREATED).body(lisT);
+		//Verificar fecha inferior a la actual
+		Date fechaactual = new Date();
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		String fechaSolicitada = date.format(turno.getFechaSolicitada());
+		
+		// Verificar si ya solicito turno para la misma mascota el mismo dia
+		turnosExistentes = this.turnoService.verificarTurnoExistenteMismoDia(turno.getIdMascota(), turno.getIdUsuarioSolicitante(),turno.getFechaSolicitada());
+		
+		try {
+			fechaSolicitadaDate= date.parse(fechaSolicitada);
+			//Verifico si La fecha solicutada es menor a la actual
+			if(fechaSolicitadaDate.after(fechaactual)){
+				 //Verifico No tenga turnos para el mismo dia misma mascota
+				if (turnosExistentes.isEmpty()) {
+				
+				    // Busca el Usuario con id Usuario
+					Usuario user = this.usuarioService.BuscarUsuario(turno.getIdUsuarioSolicitante());
+					// Buscar mascota con id mascota
+					Mascota pet = this.mascotaService.BuscarMascota(turno.getIdMascota());
+					// Crear entity Turno asignando cada atributo
+					Turnos turnoSolicitud = new Turnos(turno);
+					turnoSolicitud.setMascota(pet);
+					turnoSolicitud.setUsuarioSolicitante(user);
+					turnoSolicitud.setBorrado(false);
+					turnoSolicitud.setEstadoSolicitud("SOLICITUD");
+					Date hoy = new Date();
+					turnoSolicitud.setFechaCreado(hoy);
+					nuevoTurno = turnoService.crearTurno(turnoSolicitud);
+				}else {
+					 System.out.println("#### Ya dispone de turnos para la mascota en el mismo dia");
+					 nuevoTurno.setId(-2);
+					 nuevoTurno.setMotivo("Ya dispone de un turno para la misma mascota para la fecha solicitada");
+				}
+			}else{
+			    System.out.println("#### Fecha actual mayor la solicitada");
+			    nuevoTurno.setId(-1);
+			    nuevoTurno.setMotivo("La fecha enviada no puede ser menor a la actual");
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  //String a date
+		
+		//TODO: Recibo un turnoDTO con los datos de solicitud, id Usuario y id Mascota
+		
+		
+		
+		
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(nuevoTurno);
 		
 	}
 

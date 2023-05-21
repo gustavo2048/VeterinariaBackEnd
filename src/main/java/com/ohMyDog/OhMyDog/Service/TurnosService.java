@@ -18,5 +18,5 @@ public interface TurnosService {
 	public List<Turnos> listarHistorial(Usuario usuario);
 	public List<Turnos> listarTurnosDiaSinAsignar(Date dia); 
 	public List<Turnos> listarTurnosDiAsignados(Date dia);
-	
+	public List<Turnos> verificarTurnoExistenteMismoDia(int idMascota,int idUsuario, Date fechaSolicitud);
 }
