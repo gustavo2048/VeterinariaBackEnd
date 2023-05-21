@@ -43,7 +43,13 @@ public class PaseadorControlador {
 			return ResponseEntity.status(HttpStatus.CREATED).body(nuevaPaseador);
 		}
 
-
+		@GetMapping
+		@RequestMapping(value="traerPaseador", method= RequestMethod.GET)
+		public ResponseEntity<?> traerPaseador(int id){
+			Paseador paseador= this.paseadorService.BuscarPaseador(id);
+			return ResponseEntity.ok(paseador);
+					
+		}
 		@GetMapping
 		@RequestMapping(value="listarPaseador", method = RequestMethod.GET )
 		public ResponseEntity<?> listarPaseador(){

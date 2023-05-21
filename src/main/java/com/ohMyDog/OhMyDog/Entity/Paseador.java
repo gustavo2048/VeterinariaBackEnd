@@ -33,10 +33,10 @@ public class Paseador {
 	@Column(name = "apellido")
 	private String apellido;
 	
-	@Column(name = "zonaTrabajo")
+	@Column(name = "zona_trabajo")
 	private String zonaTrabajo;
 	
-	@Column(name = "horarioTrabajo")
+	@Column(name = "horario_trabajo")
 	private String horarioTrabajo;
 	
 	@Column(name = "email")

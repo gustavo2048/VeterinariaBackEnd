@@ -37,7 +37,7 @@ public class paseadorServiceIMPL implements PaseadorService {
 	@Override
 	public Paseador BuscarPaseador(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.repo.findById(id).get();
 	}
 
 	@Override
