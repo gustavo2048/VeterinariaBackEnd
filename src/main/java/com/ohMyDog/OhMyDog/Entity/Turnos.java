@@ -3,6 +3,7 @@ package com.ohMyDog.OhMyDog.Entity;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ohMyDog.OhMyDog.DTO.TurnosDTO;
 
 import jakarta.persistence.Column;
@@ -45,10 +46,8 @@ public class Turnos {
 	@Column(name = "fechaAsignada")
 	private Date fechaAsignada;
 	
-
-	@JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idMascota")
 	private Mascota mascota;
 	
 
@@ -66,7 +65,7 @@ public class Turnos {
 		//this.estadoSolicitud() Este valor se seteara cuando se Hace la solicitud
 		this.setHorarioTentativo(turnoDTO.getHorarioTentativo());
 		this.setFechaSolicitada(turnoDTO.getFechaSolicitada());
-		this.setMotivo(turnoDTO.getMotivo());
+		this.setMotivo(turnoDTO.getMotivo( ));
 	}
 	
 	
