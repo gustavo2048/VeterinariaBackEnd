@@ -130,5 +130,13 @@ public class TurnosControlador {
 		
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body("se envio mail?");
 	}
+	
+	
+	@GetMapping
+	@RequestMapping(value="turnosSolicitados", method = RequestMethod.GET)
+	public ResponseEntity<?> turnosSolicitados(){
+		List<Turnos> listadoSolicitados = this.turnoService.listadoTurnosSolicitados();
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(listadoSolicitados);
+	}
 
 }

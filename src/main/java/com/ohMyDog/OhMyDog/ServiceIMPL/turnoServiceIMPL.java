@@ -79,4 +79,9 @@ public class turnoServiceIMPL implements TurnosService {
 		return this.repo.misTurnosPendientes(id);
 	}
 
+	@Override
+	public List<Turnos> listadoTurnosSolicitados() {
+		return this.repo.solicitadosActualmente();
+	}
+
 }
