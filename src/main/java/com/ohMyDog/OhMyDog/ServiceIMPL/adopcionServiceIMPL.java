@@ -21,6 +21,20 @@ public class adopcionServiceIMPL implements AdopcionService{
 		// TODO Auto-generated method stub
 		return (List<Adopcion>)this.repo.findAll();
 	}
+	
+	@Override
+	public List<Adopcion> listarAdopcionesMias(int id) {
+		// TODO Auto-generated method stub
+		return (List<Adopcion>)this.repo.listarAdopcionesMias(id);
+	}
+	
+	@Override
+	public List<Adopcion> listarAdopcionesAjenas(int id) {
+		// TODO Auto-generated method stub
+		return (List<Adopcion>)this.repo.listarAdopcionesAjenas(id);
+	}
+
+
 
 	@Override
 	public Adopcion crearAdopcion(Adopcion adopcion) {

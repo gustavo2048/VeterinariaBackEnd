@@ -37,8 +37,14 @@ public class Adopcion {
 	@Column(name = "motivo")
 	private String motivo;
 	
-	@Column(name = "observacion")
-	private String observacion;
+	@Column(name = "sexo")
+	private String sexo;
+	
+	@Column(name = "tamanio")
+	private String tamanio;
+	
+	@Column(name = "raza")
+	private String raza;
 	
 	@Column(name = "descripcion")
 	private String descripcion;
@@ -66,6 +72,11 @@ public class Adopcion {
 		this.setAdoptado(adopcion.isAdoptado());
 		this.setBorrado(adopcion.isBorrado());
 		this.setTitulo(adopcion.getTitulo());
+		
+		this.setTitulo(adopcion.getSexo());
+		this.setTitulo(adopcion.getTamanio());
+		this.setTitulo(adopcion.getRaza());
+		
 		this.setDescripcion(adopcion.getDescripcion());
 		this.setMotivo(adopcion.getMotivo());
 		this.setFechaCreacion(adopcion.getFechaCreacion());
@@ -113,14 +124,26 @@ public class Adopcion {
 		this.motivo = motivo;
 	}	
 
-	public String getObservacion() {
-		return observacion;
-	}
 
-	public void setObservacion(String observacion) {
-		this.observacion = observacion;
-	}
 
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public String getTamanio() {
+		return tamanio;
+	}
+	public void setTamanio(String tamanio) {
+		this.tamanio = tamanio;
+	}
+	public String getRaza() {
+		return raza;
+	}
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
 	public String getDescripcion() {
 		return descripcion;
 	}
