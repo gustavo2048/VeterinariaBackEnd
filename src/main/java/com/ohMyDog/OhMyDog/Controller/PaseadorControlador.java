@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 ///modificar con Adopcion
 import com.ohMyDog.OhMyDog.DTO.PaseadorDTO;
 import com.ohMyDog.OhMyDog.DTO.UsuarioDTO;
+import com.ohMyDog.OhMyDog.Entity.Adopcion;
 import com.ohMyDog.OhMyDog.Entity.Paseador;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 
@@ -55,6 +56,12 @@ public class PaseadorControlador {
 		public ResponseEntity<?> listarPaseador(){
 			List<Paseador> listadoPaseador = this.paseadorService.listarPaseador();
 			return ResponseEntity.ok(listadoPaseador);
+		}
+		@PostMapping
+		@RequestMapping(value="modificarPaseador", method = RequestMethod.POST )
+		public ResponseEntity<?> modificarPaseador(@RequestBody Paseador pas){	
+			Paseador paseador = this.paseadorService.modificarPaseador(pas);		
+			return ResponseEntity.ok(paseador);
 		}
 
 		@PostMapping
