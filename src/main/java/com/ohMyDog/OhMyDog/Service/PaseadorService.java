@@ -8,5 +8,6 @@ public interface PaseadorService {
 	public Paseador crearPaseador(Paseador paseador);
 	public Paseador modificarPaseador(Paseador paseador);
 	public Paseador BuscarPaseador(int id);
+	public Paseador buscarPaseadorXEmail(String email);
 	public void EliminarPaseador(int id);
 }

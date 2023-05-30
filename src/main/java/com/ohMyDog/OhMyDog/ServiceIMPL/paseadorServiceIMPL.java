@@ -45,5 +45,9 @@ public class paseadorServiceIMPL implements PaseadorService {
 		// TODO Auto-generated method stub
 
 	}
-	
+	@Override
+	public Paseador buscarPaseadorXEmail(String email) {
+		// TODO Auto-generated method stub
+		return this.repo.buscarPaseadorXEmail(email);
+	}
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 ///modificar con Adopcion
 import com.ohMyDog.OhMyDog.DTO.PaseadorDTO;
-
+import com.ohMyDog.OhMyDog.DTO.UsuarioDTO;
 import com.ohMyDog.OhMyDog.Entity.Paseador;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 
@@ -56,8 +56,23 @@ public class PaseadorControlador {
 			List<Paseador> listadoPaseador = this.paseadorService.listarPaseador();
 			return ResponseEntity.ok(listadoPaseador);
 		}
+
+		@PostMapping
+		@RequestMapping(value="agregarPaseador", method = RequestMethod.POST )
+		public ResponseEntity<?> agregarPaseador(@RequestBody Paseador user){
+			Paseador u = this.paseadorService.buscarPaseadorXEmail(user.getEmail());
+			System.out.print(u);
+			if(u == null) {
+				Paseador user2 = this.paseadorService.crearPaseador(user);//crea usuario y lo devuelve
+				return ResponseEntity.ok(user2);}
+			else {
+				if(u.getEmail().equals(user.getEmail()))
+					
+					u.setId(-1);// el email existe entonces lo seteo en -1 al id
+					return ResponseEntity.ok(u);
+			}
 		
-		
+		}
 
 }
 
