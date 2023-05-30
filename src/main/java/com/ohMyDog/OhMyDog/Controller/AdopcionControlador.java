@@ -49,6 +49,21 @@ public class AdopcionControlador {
 		Adopcion adopcion2 = this.adopcionService.modificarAdopcion(adopcion);		
 		return ResponseEntity.ok(adopcion2);
 	}
+	
+	@GetMapping
+	@RequestMapping(value="listarAdopcionesMias/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> listarAdopcionesMias(@PathVariable int id){
+		List<Adopcion> listadoAdopcionMias = this.adopcionService.listarAdopcionesMias(id);
+		return ResponseEntity.ok(listadoAdopcionMias);
+	}
+	
+	@GetMapping
+	@RequestMapping(value="listarAdopcionesAjenas/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> listarAdopcionesAjenas(@PathVariable int id){
+		List<Adopcion> listadoAdopcionAjenas = this.adopcionService.listarAdopcionesAjenas(id);
+		return ResponseEntity.ok(listadoAdopcionAjenas);
+	}
+
 
 
 	@GetMapping
@@ -58,6 +73,7 @@ public class AdopcionControlador {
 		return ResponseEntity.ok(listadoAdopcion);
 	}
 	
+
 	
 
 }

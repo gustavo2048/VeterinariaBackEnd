@@ -4,7 +4,6 @@ VALUES ('Suarez',false,'2222','calle123','prueba2@gmail.com','Lautaro',1234,'CLI
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
 VALUES ('Gonzales',false,'3333','calle123','prueba3@gmail.com','Gustavo',1234,'CLIENTE','2213422234',true);
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`) 
-VALUES ('Gonzales',false,'3333','calle123','pablo@gmail.com','pablo',1234,'VETERINARIO','2213422234',false);
 VALUES ('Roberto',false,'3333','calle123','veterinario1@gmail.com','Nicolas',1234,'VETERINARIO','2213422234',true);
 
 
@@ -36,15 +35,14 @@ INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `gene
 VALUES (NULL, 'lindo perro', true, NULL, 'masculino', 'centro');
 
 -- TABLA ADOPCIONES
-INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
-VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Adoptamee', '1');
-INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
-VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Se que me queres', '1');
-INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
-VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Se que me queres', '2');
-INSERT INTO `adopcion` (`id`, `adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `observacion`, `titulo`, `usuario_id`)
-VALUES (NULL, b'00000', b'00000', 'Se porta excelente.', NULL, 'Tuvimos muchas crías. No tenemos mas lugar.', 'Esta completamente sano.', 'Adoptamee', '2');
-
+INSERT INTO `adopcion` (`adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `raza`, `sexo`, `tamanio`, `titulo`, `usuario_id`)
+VALUES (b'00000', b'00000', 'Es un perrinchi camina bien', NULL, 'No tenemos mas lugar', 'Callejero', 'Macho', 'Grande', 'Adoptame Porfis', 1);
+INSERT INTO `adopcion` (`adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `raza`, `sexo`, `tamanio`, `titulo`, `usuario_id`)
+VALUES (b'00000', b'00000', 'Es lo mas lindo que vi', NULL, 'Muchas crias', 'Callejero', 'Hembra', 'Pequenia', 'Soy re bella', 1);
+INSERT INTO `adopcion` (`adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `raza`, `sexo`, `tamanio`, `titulo`, `usuario_id`)
+VALUES (b'00000', b'00000', 'Tu compa ideal', NULL, 'Lo encontramos en la calle', 'Callejero', 'Macho', 'Grande', 'No te vas a arrepentir', 2);
+INSERT INTO `adopcion` (`adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `raza`, `sexo`, `tamanio`, `titulo`, `usuario_id`)
+VALUES (b'00000', b'00000', 'Se porta increible', NULL, 'No tenemos mas lugar', 'Callejero', 'Macho', 'Grande', 'Es un amor', 2);
 -- TABLA PASEADORES
 
 INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
@@ -56,12 +54,21 @@ VALUES (NULL, false, 'Torres', false, 'Puntual', 'lomas@lomas1', NULL, 'Tarde', 
 
 -- TABLA TURNOS
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
-VALUES (b'00000', 'CONFIRMADO', NULL, '2023-05-22 00:00:00', '2023-05-24 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '1', '1');
+VALUES (b'00000', 'CONFIRMADO', '2023-05-24 00:00:00', '2023-05-22 00:00:00', '2023-05-24 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '1', '1');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
 VALUES (b'00000', 'PENDIENTE', NULL, '2023-05-22 00:00:00', '2023-05-26 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '1', '1');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
 VALUES (b'00000', 'PENDIENTE', NULL, '2023-05-22 00:00:00', '2023-05-26 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '2', '1');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
-VALUES (b'00000', 'CONFIRMADO', NULL, '2023-05-22 00:00:00', '2023-05-27 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '1', '2');
+VALUES (b'00000', 'CONFIRMADO', '2023-05-27 00:00:00', '2023-05-22 00:00:00', '2023-05-27 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '4', '2');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
-VALUES (b'00000', 'PENDIENTE', NULL, '2023-05-22 00:00:00', '2023-06-01 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '1', '2');
+VALUES (b'00000', 'PENDIENTE', NULL, '2023-05-22 00:00:00', '2023-06-01 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '3', '2');
+
+INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
+VALUES (b'00000', 'PENDIENTE', NULL, '2023-05-22 00:00:00', '2023-06-02 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '4', '2');
+INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
+VALUES (b'00000', 'CONFIRMADO', '2023-06-03 00:00:00', '2023-05-22 00:00:00', '2023-06-03 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '4', '2');
+INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
+VALUES (b'00000', 'CONFIRMADO', '2023-06-04 00:00:00', '2023-05-22 00:00:00', '2023-06-04 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '3', '2');
+INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
+VALUES (b'00000', 'CONFIRMADO', '2023-06-05 00:00:00', '2023-05-22 00:00:00', '2023-06-05 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '3', '2');
