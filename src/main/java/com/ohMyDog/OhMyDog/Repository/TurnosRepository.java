@@ -17,4 +17,13 @@ public interface TurnosRepository extends CrudRepository<Turnos, Integer> {
 	
 	@Query(value = "SELECT * FROM turno t WHERE (t.estado_solicitud = 'PENDIENTE' or t.estado_solicitud = 'CONFIRMADO')  and usuario_id = ?1", nativeQuery = true)
 	public List<Turnos> misTurnosPendientes(int id);
+	
+	@Query(value= "SELECT * FROM turno t WHERE t.estado_solicitud = 'PENDIENTE' ",nativeQuery = true)
+	public List<Turnos> solicitadosActualmente();
+	
+	@Query(value= "SELECT * FROM turno t WHERE t.estado_solicitud = 'CONFIRMADO' ",nativeQuery = true)
+	public List<Turnos> confirmadosActualmente();
+	
+	@Query(value="SELECT * FROM turno t WHERE t.fecha_solicitada =?1 and t.estado_solicitud = 'CONFIRMADO' ", nativeQuery = true)
+	public  List<Turnos> confirmadosHoy(Date fechaActual);
 }

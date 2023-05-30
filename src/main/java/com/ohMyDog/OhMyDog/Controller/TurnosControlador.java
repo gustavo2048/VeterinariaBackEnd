@@ -22,6 +22,7 @@ import com.ohMyDog.OhMyDog.DTO.TurnosDTO;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Turnos;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
+import com.ohMyDog.OhMyDog.Mail.EmailService;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.turnoServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
@@ -40,6 +41,14 @@ public class TurnosControlador {
 	
 	@Autowired
 	private mascotaServiceIMPL mascotaService;
+	
+	private final EmailService emailService;
+	
+	@Autowired
+	public TurnosControlador(EmailService emailService) {
+		this.emailService = emailService;
+	}
+	
 	
 	@PostMapping
 	@RequestMapping(value="crearTurno", method = RequestMethod.POST )
@@ -100,10 +109,7 @@ public class TurnosControlador {
 	@GetMapping
 	@RequestMapping(value="turnosPendientes/{id}", method = RequestMethod.GET )
 	public ResponseEntity<?> getTurnosPendientes(@PathVariable int id){
-		
-		System.out.println("##### se recibio el parametro");
-		System.out.println(id);
-		
+
 		List<Turnos> misTurnos = this.turnoService.misTurnosPendientes(id);
 		List<TurnosDTO> misTurnosDTO = new ArrayList<TurnosDTO>();
 //		for (Turnos turno: misTurnos) {
@@ -112,8 +118,17 @@ public class TurnosControlador {
 //			misTurnosDTO.add(nuevoT);
 //		}
 		
-		
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(misTurnos);
+	}
+	
+	@PostMapping
+	@RequestMapping(value="envioEmail", method = RequestMethod.POST )
+	public ResponseEntity<?> envioEmail(@RequestBody String email){
+		System.out.println("Ingreso al endPoint");
+		
+		this.emailService.sendListEmail(email);
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body("se envio mail?");
 	}
 
 }
