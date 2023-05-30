@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 ///modificar con Adopcion
 import com.ohMyDog.OhMyDog.DTO.AdopcionDTO;
-
+import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 import com.ohMyDog.OhMyDog.Entity.Adopcion;
+import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.adopcionServiceIMPL;
 
@@ -40,6 +41,13 @@ public class AdopcionControlador {
 		///FALTA RELACIONARLO CON EL USUARIO
 		//Mascota nuevaMascota2 = this.mascotaService.crearMascota(nuevaMascota);		
 		return ResponseEntity.status(HttpStatus.CREATED).body(nuevaAdopcion);
+	}
+	
+	@PostMapping
+	@RequestMapping(value="modificarAdopcion", method = RequestMethod.POST )
+	public ResponseEntity<?> modificarMascota(@RequestBody Adopcion adopcion){	
+		Adopcion adopcion2 = this.adopcionService.modificarAdopcion(adopcion);		
+		return ResponseEntity.ok(adopcion2);
 	}
 
 
