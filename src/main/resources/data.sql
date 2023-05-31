@@ -8,15 +8,14 @@ VALUES ('Roberto',false,'3333','calle123','veterinario1@gmail.com','Nicolas',123
 
 
 -- TABLA MASCOTA
-INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamanio`,`usuario_id`) 
-VALUES (false, 'Es blanco con manchitas negras', '2 años', 'foto1.jpg', 'Oddie', 'Mestizo', 'mediano',1 );
-INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamanio`,`usuario_id`) 
-VALUES (false, 'Es naranja', '5 años', 'foto1.jpg', 'Francis', 'Doberman', 'grande', 1 );
-
-INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamanio`,`usuario_id`) 
-VALUES (false, 'Es hermosa', '4 años', 'foto1.jpg', 'Luz', 'Caniche', 'chiquitita',2 );
-INSERT INTO `mascota`(`borrado`, `caracteristicas`, `edad`, `foto`, `nombre`, `raza`, `tamanio`,`usuario_id`) 
-VALUES (false, 'Aun mas hermosa', '2 años', 'foto1.jpg', 'Luna', 'Caniche', 'chiquita', 2 );
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', NULL, 'Oddie', 'callejero', 'grande', '1');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00', NULL, 'Nancy', 'callejero', 'grande', '1');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00', NULL, 'Cristal', 'callejero', 'grande', '2');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00', NULL, 'Susy', 'callejero', 'grande', '2');
 
 -- TABLA ENCONTRADOS
 INSERT INTO `encontrado` (`id`, `con_duenio`, `descripcion`, `fecha_encontrado`, `genero`, `lugar`,`usuario_id`)

@@ -1,5 +1,9 @@
 package com.ohMyDog.OhMyDog.DTO;
 
+
+
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
@@ -14,7 +18,8 @@ public class MascotaDTO {
 	private boolean borrado;
 	private String nombre;
 	private String raza;
-	private String edad;
+	private String color;
+	private Date edad;
 	private String tamanio;
 	private String caracteristicas;
 	private String foto;
@@ -32,6 +37,7 @@ public class MascotaDTO {
 		this.setRaza(mascota.getRaza());
 		this.setEdad(mascota.getEdad());
 		this.setTamanio(mascota.getTamanio());
+		this.setColor(mascota.getColor());
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
 		//this.setUsuario(new Usuario());
@@ -70,12 +76,21 @@ public class MascotaDTO {
 	public void setRaza(String raza) {
 		this.raza = raza;
 	}
+	
 
-	public String getEdad() {
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public Date getEdad() {
 		return edad;
 	}
 
-	public void setEdad(String edad) {
+	public void setEdad(Date edad) {
 		this.edad = edad;
 	}
 

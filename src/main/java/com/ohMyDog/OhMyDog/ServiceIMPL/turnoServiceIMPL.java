@@ -26,23 +26,37 @@ public class turnoServiceIMPL implements TurnosService {
 	}
 
 	@Override
-	public Turnos modificarTurno(Turnos turno) {
+	public List<Turnos> listarTurnos() {
 		// TODO Auto-generated method stub
+		return (List<Turnos>)this.repo.findAll();
+	}
+
+	@Override
+	public Turnos modificarTurno(Turnos turno) {
 		// No se implementa
 		return null;
 	}
 
 	@Override
 	public void eliminarCliente(int id) {
-		// TODO Auto-generated method stub
 		// No se implementa
-
+		
 	}
 
 	@Override
-	public List<Turnos> listarMisTurnoSinAsignar(Usuario usuario) {
+	public List<Turnos> listarMisTurnoPendientes(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Turnos> listarMisTurnosPendientes(int id) {
+		return this.repo.misTurnosPendientes(id);
+	}
+
+	@Override
+	public List<Turnos> verificarTurnoExistenteMismoDia(int idMascota, int idUsuario, Date fechaSolicitud) {
+		return this.repo.verificarTurnoExistenteMismoDia(idMascota, idUsuario, fechaSolicitud);
 	}
 
 	@Override
@@ -52,36 +66,27 @@ public class turnoServiceIMPL implements TurnosService {
 	}
 
 	@Override
-	public List<Turnos> listarTurnosDiaSinAsignar(Date dia) {
+	public List<Turnos> listarTurnosDiaPendientes(Date dia) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Turnos> listarTurnosDiAsignados(Date dia) {
+	public List<Turnos> listarTurnosDiaConfirmados(Date dia) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Turnos> listarTurnos() {
-		// TODO (List<Turnos>)this.repo.findAll()
-		return (List<Turnos>)this.repo.findAll();
+	public List<Turnos> listadoTurnosPendientes() {
+		return this.repo.turnosPendientes();
 	}
 
 	@Override
-	public List<Turnos> verificarTurnoExistenteMismoDia(int idMascota, int idUsuario, Date fechaSolicitud) {
-		return this.repo.verificarTurnoExistenteMismoDia(idMascota, idUsuario, fechaSolicitud);
+	public List<Turnos> listarTurnosConfirmados() {
+		return this.repo.turnosConfirmados() ;
 	}
 
-	@Override
-	public List<Turnos> misTurnosPendientes(int id) {
-		return this.repo.misTurnosPendientes(id);
-	}
-
-	@Override
-	public List<Turnos> listadoTurnosSolicitados() {
-		return this.repo.solicitadosActualmente();
-	}
+	
 
 }
