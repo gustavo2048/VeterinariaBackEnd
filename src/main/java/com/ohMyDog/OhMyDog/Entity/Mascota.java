@@ -1,5 +1,7 @@
 package com.ohMyDog.OhMyDog.Entity;
 
+
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,8 +35,11 @@ public class Mascota {
 	@Column(name = "raza")
 	private String raza;
 	
+	@Column(name = "color")
+	private String color;
+	
 	@Column(name = "edad")
-	private String edad;
+	private Date edad;
 	
 	@Column(name = "tamanio")
 	private String tamanio;
@@ -66,6 +71,7 @@ public class Mascota {
 		this.setNombre(mascota.getNombre());
 		this.setRaza(mascota.getRaza());
 		this.setEdad(mascota.getEdad());
+		this.setColor(mascota.getColor());
 		this.setTamanio(mascota.getTamanio());
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
@@ -94,12 +100,22 @@ public class Mascota {
 	public void setRaza(String raza) {
 		this.raza = raza;
 	}
+	
+	
 
-	public String getEdad() {
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public Date getEdad() {
 		return edad;
 	}
 
-	public void setEdad(String edad) {
+	public void setEdad(Date edad) {
 		this.edad = edad;
 	}
 
