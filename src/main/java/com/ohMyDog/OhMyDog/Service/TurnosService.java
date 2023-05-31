@@ -14,11 +14,20 @@ public interface TurnosService {
 	public Turnos crearTurno(Turnos turno);
 	public Turnos modificarTurno(Turnos turno); //No implementar
 	public void eliminarCliente(int id);  //No implementar
-	public List<Turnos> listarMisTurnoSinAsignar(Usuario usuario);
-	public List<Turnos> listarHistorial(Usuario usuario);
-	public List<Turnos> listarTurnosDiaSinAsignar(Date dia); 
-	public List<Turnos> listarTurnosDiAsignados(Date dia);
-	public List<Turnos> listadoTurnosSolicitados();
+	public List<Turnos> listarMisTurnoPendientes(Usuario usuario);
+	
+	public List<Turnos> listarMisTurnosPendientes(int id);
+
 	public List<Turnos> verificarTurnoExistenteMismoDia(int idMascota,int idUsuario, Date fechaSolicitud);
-	public List<Turnos> misTurnosPendientes(int id);
+
+	public List<Turnos> listarHistorial(Usuario usuario);
+	
+	public List<Turnos> listarTurnosDiaPendientes(Date dia); 
+	
+	public List<Turnos> listarTurnosDiaConfirmados(Date dia);
+	
+	public List<Turnos> listadoTurnosPendientes();
+	
+	public List<Turnos> listarTurnosConfirmados();
+	
 }
