@@ -105,19 +105,11 @@ public class TurnosControlador {
 		
 	}
 	
-	
 	@GetMapping
 	@RequestMapping(value="turnosPendientes/{id}", method = RequestMethod.GET )
 	public ResponseEntity<?> getTurnosPendientes(@PathVariable int id){
 
-		List<Turnos> misTurnos = this.turnoService.misTurnosPendientes(id);
-		List<TurnosDTO> misTurnosDTO = new ArrayList<TurnosDTO>();
-//		for (Turnos turno: misTurnos) {
-//			TurnosDTO nuevoT = new TurnosDTO(turno);
-//			nuevoT.setMascota(this.mascotaService.BuscarMascota(id));
-//			misTurnosDTO.add(nuevoT);
-//		}
-		
+		List<Turnos> misTurnos = this.turnoService.listarMisTurnosPendientes(id);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(misTurnos);
 	}
 	
@@ -131,12 +123,19 @@ public class TurnosControlador {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body("se envio mail?");
 	}
 	
-	
 	@GetMapping
 	@RequestMapping(value="turnosSolicitados", method = RequestMethod.GET)
-	public ResponseEntity<?> turnosSolicitados(){
-		List<Turnos> listadoSolicitados = this.turnoService.listadoTurnosSolicitados();
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(listadoSolicitados);
+	public ResponseEntity<?> turnosPendientes(){
+		List<Turnos> listadoPendientes = this.turnoService.listadoTurnosPendientes();
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(listadoPendientes);
 	}
+	
+	@GetMapping
+	@RequestMapping(value="turnosConfirmados", method = RequestMethod.GET)
+	public ResponseEntity<?> turnosConfirmados(){
+		List<Turnos> listadoConfirmados = this.turnoService.listarTurnosConfirmados();
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(listadoConfirmados);
+	}
+	
 
 }

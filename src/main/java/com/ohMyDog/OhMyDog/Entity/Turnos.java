@@ -51,7 +51,7 @@ public class Turnos {
 	private Mascota mascota;
 	
 
-	@JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;
 
