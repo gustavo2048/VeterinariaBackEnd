@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ohMyDog.OhMyDog.Entity.Encontrado;
 import com.ohMyDog.OhMyDog.Entity.Perdido;
 import com.ohMyDog.OhMyDog.Repository.PerdidoRepository;
 import com.ohMyDog.OhMyDog.Service.PerdidoService;
@@ -24,4 +25,15 @@ public class perdidoServiceIMPL implements PerdidoService {
 		// TODO Auto-generated method stub
 		return this.repo.save(perdido);		
 	}	
+	@Override
+	public List<Perdido> listarPerdidoMias(int id) {
+		// TODO Auto-generated method stub
+		return (List<Perdido>)this.repo.listarPerdidoMias(id);
+	}
+	
+	@Override
+	public List<Perdido> listarPerdidoAjenas(int id) {
+		// TODO Auto-generated method stub
+		return (List<Perdido>)this.repo.listarPerdidoAjenas(id);
+	}
 }

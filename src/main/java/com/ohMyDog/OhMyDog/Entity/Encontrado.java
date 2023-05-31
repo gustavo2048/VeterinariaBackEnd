@@ -39,7 +39,8 @@ public class Encontrado {
 	@Column(name = "fecha_encontrado")
 	private Date fechaEncontrado;
 
-	
+	@Column(name = "usuarioId")
+	private  int usuarioId;
 	
 	public Encontrado() {
 		
@@ -51,6 +52,8 @@ public class Encontrado {
 		this.setId(e.getId());
 		this.setLugar(e.getLugar());
 		this.setDescripcion(e.getDescripcion());
+		this.setUsuarioId(e.getUsuarioId());
+
 	}
 	
 	
@@ -102,6 +105,12 @@ public class Encontrado {
 		this.fechaEncontrado = fechaEncontrado;
 	}
 	
+	public int getUsuarioId() {
+		return this.usuarioId;
+	}
 
+	public void setUsuarioId(int usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 	
 }

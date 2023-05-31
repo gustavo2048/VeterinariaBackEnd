@@ -7,12 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ohMyDog.OhMyDog.Entity.Adopcion;
 import com.ohMyDog.OhMyDog.Entity.Encontrado;
 import com.ohMyDog.OhMyDog.ServiceIMPL.encontradoServiceIMPL;
 
@@ -43,7 +45,19 @@ public class EncontradoControlador {
 		List<Encontrado> listadoEncontrado = this.encontradoService.listarEncontrado();
 		return ResponseEntity.ok(listadoEncontrado);
 	}
+	@GetMapping
+	@RequestMapping(value="listarEncontradoMias/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> listarEncontradoMias(@PathVariable int id){
+		List<Encontrado> listadoEncontradoMias = this.encontradoService.listarEncontradoMias(id);
+		return ResponseEntity.ok(listadoEncontradoMias);
+	}
 	
+	@GetMapping
+	@RequestMapping(value="listarEncontradoAjenas/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> listarEncotradoAjenas(@PathVariable int id){
+		List<Encontrado> listadoEncontradoAjenas = this.encontradoService.listarEncontradoAjenas(id);
+		return ResponseEntity.ok(listadoEncontradoAjenas);
+	}
 	
 
 }

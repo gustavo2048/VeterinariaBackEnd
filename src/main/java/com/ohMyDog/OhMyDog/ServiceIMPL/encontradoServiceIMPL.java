@@ -26,4 +26,16 @@ public class encontradoServiceIMPL implements EncontradoService {
 		// TODO Auto-generated method stub
 		return this.repo.save(encontrado);		
 	}	
+
+	@Override
+	public List<Encontrado> listarEncontradoMias(int id) {
+		// TODO Auto-generated method stub
+		return (List<Encontrado>)this.repo.listarEncontradoMias(id);
+	}
+	
+	@Override
+	public List<Encontrado> listarEncontradoAjenas(int id) {
+		// TODO Auto-generated method stub
+		return (List<Encontrado>)this.repo.listarEncontradoAjenas(id);
+	}
 }

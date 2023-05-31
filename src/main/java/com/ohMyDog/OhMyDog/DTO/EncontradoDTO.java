@@ -11,7 +11,7 @@ public class EncontradoDTO {
 	private String descripcion;
 	private String genero;
 	private boolean conDuenio;
-	
+	private int usuarioId;
 	public EncontradoDTO() {
 		
 	}
@@ -22,6 +22,7 @@ public class EncontradoDTO {
 		this.setId(e.getId());
 		this.setLugar(e.getLugar());
 		this.setDescripcion(e.getDescripcion());
+		this.setUsuarioId(e.getUsuarioId());
 	}
 	public int getId() {
 		return id;
@@ -59,5 +60,10 @@ public class EncontradoDTO {
 	public void setConDuenio(boolean conDuenio) {
 		this.conDuenio = conDuenio;
 	}
-	
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(int id) {
+		this.usuarioId=id;
+	}
 }

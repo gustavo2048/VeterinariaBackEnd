@@ -7,12 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ohMyDog.OhMyDog.Entity.Encontrado;
 import com.ohMyDog.OhMyDog.Entity.Perdido;
 import com.ohMyDog.OhMyDog.ServiceIMPL.perdidoServiceIMPL;
 
@@ -44,6 +46,19 @@ public class PerdidoControlador {
 		return ResponseEntity.ok(listadoPerdido);
 	}
 	
+	@GetMapping
+	@RequestMapping(value="listarPerdidoMias/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> listarPerdidoMias(@PathVariable int id){
+		List<Perdido> listadoPerdidoMias = this.perdidoService.listarPerdidoMias(id);
+		return ResponseEntity.ok(listadoPerdidoMias);
+	}
+	
+	@GetMapping
+	@RequestMapping(value="listarPerdidoAjenas/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> listarPerdidoAjenas(@PathVariable int id){
+		List<Perdido> listadoPerdidoMias = this.perdidoService.listarPerdidoAjenas(id);
+		return ResponseEntity.ok(listadoPerdidoMias);
+	}
 	
 
 }

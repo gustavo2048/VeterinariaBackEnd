@@ -11,6 +11,7 @@ public class PerdidoDTO {
 	private String descripcion;
 	private String genero;
 	private boolean encontrado;
+	private int usuarioId;
 	
 	
 	public PerdidoDTO() {
@@ -24,7 +25,7 @@ public class PerdidoDTO {
 		this.setLugar(perdido.getLugar());
 		this.setId(perdido.getId());
 		this.setEncontrado(perdido.isEncontrado());
-	
+		this.setUsuarioId(perdido.getUsuarioId());
 	
 	}
 	
@@ -64,5 +65,10 @@ public class PerdidoDTO {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(int id) {
+		this.usuarioId=id;
+	}
 }

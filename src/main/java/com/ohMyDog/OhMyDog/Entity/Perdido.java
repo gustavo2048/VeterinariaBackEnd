@@ -38,6 +38,9 @@ public class Perdido {
 	@Column(name = "fecha_perdido")
 	private Date fechaPerdido;
 
+	@Column(name = "usuarioId")
+	private  int usuarioId;
+	
 	
 	
 	public Perdido() {
@@ -50,6 +53,8 @@ public class Perdido {
 		this.setLugar(perdido.getLugar());
 		this.setId(perdido.getId());
 		this.setEncontrado(perdido.isEncontrado());
+		this.setUsuarioId(perdido.getUsuarioId());
+
 	}
 	public int getId() {
 		return id;
@@ -88,7 +93,13 @@ public class Perdido {
 		this.fechaPerdido = fechaPerdido;
 	}
 	
-	
+	public int getUsuarioId() {
+		return this.usuarioId;
+	}
+
+	public void setUsuarioId(int usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 	
 
 }
