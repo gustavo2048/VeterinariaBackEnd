@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
+import com.ohMyDog.OhMyDog.Entity.Perdido;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
@@ -65,6 +66,12 @@ public class MascotaControlador {
 		return ResponseEntity.ok(listadoMascotas);
 	}
 	
+	@GetMapping
+	@RequestMapping(value="traerMascota/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> traerMascota(@PathVariable int id){
+		Mascota masc = this.mascotaService.BuscarMascota(id);
+		return ResponseEntity.ok(masc);
+	}
 	@PostMapping
 	@RequestMapping(value="modificarMascota", method = RequestMethod.POST )
 	public ResponseEntity<?> modificarMascota(@RequestBody MascotaDTO mascota){	

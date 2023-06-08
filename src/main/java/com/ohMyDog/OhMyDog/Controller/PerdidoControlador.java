@@ -59,6 +59,11 @@ public class PerdidoControlador {
 		List<Perdido> listadoPerdidoMias = this.perdidoService.listarPerdidoAjenas(id);
 		return ResponseEntity.ok(listadoPerdidoMias);
 	}
-	
+	@PostMapping
+	@RequestMapping(value="modificarPerdido", method = RequestMethod.POST )
+	public ResponseEntity<?> modificarPerdido(@RequestBody Perdido perdido){	
+		Perdido perdido2 = this.perdidoService.modificarPerdido(perdido);		
+		return ResponseEntity.ok(perdido2);
+	}
 
 }

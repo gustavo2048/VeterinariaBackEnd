@@ -38,6 +38,8 @@ public class Perdido {
 	@Column(name = "fecha_perdido")
 	private Date fechaPerdido;
 
+	@Column(name = "mascotaId")
+	private int mascota;
 	@Column(name = "usuarioId")
 	private  int usuarioId;
 	
@@ -47,6 +49,7 @@ public class Perdido {
 		
 	}
 	public Perdido(PerdidoDTO perdido) {
+		this.setMascota(perdido.getMascota());
 		this.setDescripcion(perdido.getDescripcion());	
 		this.setFechaPerdido(perdido.getFechaPerdido());
 		this.setGenero(perdido.getGenero());
@@ -55,6 +58,12 @@ public class Perdido {
 		this.setEncontrado(perdido.isEncontrado());
 		this.setUsuarioId(perdido.getUsuarioId());
 
+	}
+	public int getMascota() {
+		return mascota;
+	}
+	public void setMascota(int mascota) {
+		this.mascota=mascota;
 	}
 	public int getId() {
 		return id;

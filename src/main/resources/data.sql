@@ -18,20 +18,17 @@ INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`, `fot
 VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00', NULL, 'Susy', 'callejero', 'grande', '2');
 
 -- TABLA ENCONTRADOS
-INSERT INTO `encontrado` (`id`, `con_duenio`, `descripcion`, `fecha_encontrado`, `genero`, `lugar`,`usuario_id`)
-VALUES (NULL, true, 'Se encontro perro mestizo mediano ', NULL, 'masculino', 'centro',1);
-INSERT INTO `encontrado` (`id`, `con_duenio`, `descripcion`, `fecha_encontrado`, `genero`, `lugar`,`usuario_id`)
-VALUES (NULL, false, 'Se encontro perro bulldog grande ', NULL, 'femenino', 'centro',2);
+INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
+VALUES (NULL, 'dasdsad', false, '2023-06-05', 'asdf', 'fffff', '2', '1');
+INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
+VALUES (NULL, 'dasdsad', true, '2023-06-05', 'asdf', 'fffff', '1', '1');
 
 -- TABLA PERDIDOS
-INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`,`usuario_id`)
-VALUES (NULL, 'lindo perasdro', false, NULL, 'femenino', 'tolosa centro',2);
-INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`,`usuario_id`)
-VALUES (NULL, 'lindo ', true, NULL, 'masculino', 'centro',1);
-INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`,`usuario_id`)
-VALUES (NULL, 'perro', false, NULL, 'femenino', 'tolosa centro',2);
-INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`,`usuario_id`)
-VALUES (NULL, 'lindo perro', true, NULL, 'masculino', 'centro',3);
+INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
+VALUES (NULL, 'asdffff',false, '2023-06-01', 'asdffff', 'sssssssss', '3', '2');
+INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
+VALUES (NULL, 'asdffff', true, '2023-06-01', 'asdffff', 'sssssssss', '4', '2');
+
 
 -- TABLA ADOPCIONES
 INSERT INTO `adopcion` (`adoptado`, `borrado`, `descripcion`, `fecha_creacion`, `motivo`, `raza`, `sexo`, `tamanio`, `titulo`, `usuario_id`)

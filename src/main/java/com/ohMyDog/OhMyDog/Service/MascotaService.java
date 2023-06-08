@@ -11,6 +11,5 @@ public interface MascotaService {
 	public Mascota modificarMascota(Mascota mascota);
 	public Mascota BuscarMascota(int id);
 	public void EliminarMascota(int id);	
-	
 	public List<Mascota> consultarMascotasPorIdDuenio(int id);
 }

@@ -59,5 +59,10 @@ public class EncontradoControlador {
 		return ResponseEntity.ok(listadoEncontradoAjenas);
 	}
 	
-
+	@PostMapping
+	@RequestMapping(value="modificarEncontrado", method = RequestMethod.POST )
+	public ResponseEntity<?> modificarEncontrado(@RequestBody Encontrado encontrado){	
+		Encontrado encontrado2 = this.encontradoService.modificarEncontrado(encontrado);		
+		return ResponseEntity.ok(encontrado2);
+	}
 }

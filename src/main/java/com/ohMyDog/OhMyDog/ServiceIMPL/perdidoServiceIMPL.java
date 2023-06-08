@@ -36,4 +36,9 @@ public class perdidoServiceIMPL implements PerdidoService {
 		// TODO Auto-generated method stub
 		return (List<Perdido>)this.repo.listarPerdidoAjenas(id);
 	}
+	@Override
+	public Perdido modificarPerdido(Perdido p) {
+		// TODO Auto-generated method stub	
+		return this.repo.save(p);
+	}
 }

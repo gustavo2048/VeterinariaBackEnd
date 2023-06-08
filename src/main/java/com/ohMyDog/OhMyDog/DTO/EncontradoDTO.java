@@ -4,25 +4,35 @@ import java.sql.Date;
 
 import com.ohMyDog.OhMyDog.Entity.Encontrado;
 
+
 public class EncontradoDTO {
 	private int id;
 	private Date fechaEncontrado;
 	private String lugar;
 	private String descripcion;
 	private String genero;
-	private boolean conDuenio;
+	private boolean duenio;
 	private int usuarioId;
+	private int mascota;
 	public EncontradoDTO() {
 		
 	}
 	public EncontradoDTO(Encontrado e) {
-		this.setConDuenio(e.isConDuenio());
+		this.setMascota(e.getMascota());
+		this.setDuenio(e.isDuenio());
 		this.setFechaEncontrado(e.getFechaEncontrado());
 		this.setGenero(e.getGenero());
 		this.setId(e.getId());
 		this.setLugar(e.getLugar());
 		this.setDescripcion(e.getDescripcion());
 		this.setUsuarioId(e.getUsuarioId());
+	}
+	public int getMascota() {
+		return mascota;
+	}
+	public void setMascota(int mascota) {
+		this.mascota=mascota;
+		
 	}
 	public int getId() {
 		return id;
@@ -54,11 +64,11 @@ public class EncontradoDTO {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	public boolean isConDuenio() {
-		return conDuenio;
+	public boolean isDuenio() {
+		return duenio;
 	}
-	public void setConDuenio(boolean conDuenio) {
-		this.conDuenio = conDuenio;
+	public void setDuenio(boolean duenio) {
+		this.duenio = duenio;
 	}
 	public int getUsuarioId() {
 		return usuarioId;

@@ -12,4 +12,5 @@ public interface EncontradoService {
 	public Encontrado crearEncontrado(Encontrado encontrado);
 	public List<Encontrado> listarEncontradoMias(int id);
 	public List<Encontrado> listarEncontradoAjenas(int id);
+	public Encontrado modificarEncontrado(Encontrado encontrado);
 }

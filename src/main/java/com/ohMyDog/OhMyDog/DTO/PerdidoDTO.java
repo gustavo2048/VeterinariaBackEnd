@@ -12,13 +12,14 @@ public class PerdidoDTO {
 	private String genero;
 	private boolean encontrado;
 	private int usuarioId;
+	private int mascota;
 	
 	
 	public PerdidoDTO() {
 		
 	}
 	public PerdidoDTO(Perdido perdido) {
-	
+		this.setMascota(perdido.getMascota());
 		this.setDescripcion(perdido.getDescripcion());	
 		this.setFechaPerdido(perdido.getFechaPerdido());
 		this.setGenero(perdido.getGenero());
@@ -28,7 +29,12 @@ public class PerdidoDTO {
 		this.setUsuarioId(perdido.getUsuarioId());
 	
 	}
-	
+	public int getMascota() {
+		return mascota;
+	}
+	public void setMascota(int mascota) {
+		this.mascota=mascota;
+	}
 	public boolean isEncontrado() {
 		return encontrado;
 	}

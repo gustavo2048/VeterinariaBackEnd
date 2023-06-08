@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ohMyDog.OhMyDog.Entity.Adopcion;
 import com.ohMyDog.OhMyDog.Entity.Encontrado;
 import com.ohMyDog.OhMyDog.Repository.EncontradoRepository;
 import com.ohMyDog.OhMyDog.Service.EncontradoService;
@@ -37,5 +38,10 @@ public class encontradoServiceIMPL implements EncontradoService {
 	public List<Encontrado> listarEncontradoAjenas(int id) {
 		// TODO Auto-generated method stub
 		return (List<Encontrado>)this.repo.listarEncontradoAjenas(id);
+	}
+	@Override
+	public Encontrado modificarEncontrado(Encontrado e) {
+		// TODO Auto-generated method stub	
+		return this.repo.save(e);
 	}
 }

@@ -22,8 +22,8 @@ public class Encontrado {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "con_duenio")
-	private boolean conDuenio;
+	@Column(name = "duenio")
+	private boolean duenio;
 
 	
 	@Column(name = "lugar")
@@ -39,6 +39,8 @@ public class Encontrado {
 	@Column(name = "fecha_encontrado")
 	private Date fechaEncontrado;
 
+	@Column(name = "mascotaId")
+	private int mascota;
 	@Column(name = "usuarioId")
 	private  int usuarioId;
 	
@@ -46,7 +48,8 @@ public class Encontrado {
 		
 	}
 	public Encontrado(EncontradoDTO e) {
-		this.setConDuenio(e.isConDuenio());
+		this.setMascota(e.getMascota());
+		this.setDuenio(e.isDuenio());
 		this.setFechaEncontrado(e.getFechaEncontrado());
 		this.setGenero(e.getGenero());
 		this.setId(e.getId());
@@ -55,8 +58,12 @@ public class Encontrado {
 		this.setUsuarioId(e.getUsuarioId());
 
 	}
-	
-	
+	public int getMascota() {
+		return mascota;
+	}
+	public void setMascota(int mascota) {
+		this.mascota=mascota;
+	}
 	public int getId() {
 		return id;
 	}
@@ -65,12 +72,12 @@ public class Encontrado {
 		this.id = id;
 	}
 
-	public boolean isConDuenio() {
-		return conDuenio;
+	public boolean isDuenio() {
+		return duenio;
 	}
 
-	public void setConDuenio(boolean conDuenio) {
-		this.conDuenio = conDuenio;
+	public void setDuenio(boolean duenio) {
+		this.duenio = duenio;
 	}
 
 	public String getLugar() {
