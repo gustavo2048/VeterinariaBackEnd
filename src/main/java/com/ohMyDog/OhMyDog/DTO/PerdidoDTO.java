@@ -19,14 +19,13 @@ public class PerdidoDTO {
 		
 	}
 	public PerdidoDTO(Perdido perdido) {
-		this.setMascota(perdido.getMascota());
+		
 		this.setDescripcion(perdido.getDescripcion());	
 		this.setFechaPerdido(perdido.getFechaPerdido());
 		this.setGenero(perdido.getGenero());
 		this.setLugar(perdido.getLugar());
 		this.setId(perdido.getId());
 		this.setEncontrado(perdido.isEncontrado());
-		this.setUsuarioId(perdido.getUsuarioId());
 	
 	}
 	public int getMascota() {

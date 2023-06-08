@@ -3,6 +3,7 @@ package com.ohMyDog.OhMyDog.Entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ohMyDog.OhMyDog.DTO.UsuarioDTO;
 
 import jakarta.persistence.CascadeType;
@@ -12,6 +13,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -60,7 +62,19 @@ public class Usuario {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	private List<Encontrado> encontrados;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<Turnos> turnos;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	private List<Perdido> perdido;
+	
+	//@JsonIgnore
+	//@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	//private List<A> adopcion;
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub

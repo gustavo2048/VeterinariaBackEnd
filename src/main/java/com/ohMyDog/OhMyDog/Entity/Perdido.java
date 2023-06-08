@@ -2,14 +2,16 @@ package com.ohMyDog.OhMyDog.Entity;
 
 import java.sql.Date;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ohMyDog.OhMyDog.DTO.PerdidoDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,10 +40,27 @@ public class Perdido {
 	@Column(name = "fecha_perdido")
 	private Date fechaPerdido;
 
-	@Column(name = "mascotaId")
-	private int mascota;
-	@Column(name = "usuarioId")
-	private  int usuarioId;
+	public Mascota getMascota() {
+		return mascota;
+	}
+	public void setMascota(Mascota mascota) {
+		this.mascota = mascota;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Mascota mascota;
+	
+
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Usuario usuario;
 	
 	
 	
@@ -49,22 +68,17 @@ public class Perdido {
 		
 	}
 	public Perdido(PerdidoDTO perdido) {
-		this.setMascota(perdido.getMascota());
+		
 		this.setDescripcion(perdido.getDescripcion());	
 		this.setFechaPerdido(perdido.getFechaPerdido());
 		this.setGenero(perdido.getGenero());
 		this.setLugar(perdido.getLugar());
 		this.setId(perdido.getId());
 		this.setEncontrado(perdido.isEncontrado());
-		this.setUsuarioId(perdido.getUsuarioId());
+		
 
 	}
-	public int getMascota() {
-		return mascota;
-	}
-	public void setMascota(int mascota) {
-		this.mascota=mascota;
-	}
+	
 	public int getId() {
 		return id;
 	}
@@ -102,13 +116,7 @@ public class Perdido {
 		this.fechaPerdido = fechaPerdido;
 	}
 	
-	public int getUsuarioId() {
-		return this.usuarioId;
-	}
-
-	public void setUsuarioId(int usuarioId) {
-		this.usuarioId = usuarioId;
-	}
+	
 	
 
 }

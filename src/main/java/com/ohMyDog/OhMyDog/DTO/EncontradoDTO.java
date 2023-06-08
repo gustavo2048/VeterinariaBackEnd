@@ -18,22 +18,15 @@ public class EncontradoDTO {
 		
 	}
 	public EncontradoDTO(Encontrado e) {
-		this.setMascota(e.getMascota());
 		this.setDuenio(e.isDuenio());
 		this.setFechaEncontrado(e.getFechaEncontrado());
 		this.setGenero(e.getGenero());
 		this.setId(e.getId());
 		this.setLugar(e.getLugar());
 		this.setDescripcion(e.getDescripcion());
-		this.setUsuarioId(e.getUsuarioId());
-	}
-	public int getMascota() {
-		return mascota;
-	}
-	public void setMascota(int mascota) {
-		this.mascota=mascota;
 		
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -70,10 +63,5 @@ public class EncontradoDTO {
 	public void setDuenio(boolean duenio) {
 		this.duenio = duenio;
 	}
-	public int getUsuarioId() {
-		return usuarioId;
-	}
-	public void setUsuarioId(int id) {
-		this.usuarioId=id;
-	}
+	
 }

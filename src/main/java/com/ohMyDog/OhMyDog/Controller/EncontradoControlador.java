@@ -43,6 +43,7 @@ public class EncontradoControlador {
 	@RequestMapping(value="listarEncontrado", method = RequestMethod.GET )
 	public ResponseEntity<?> listarEncontrado(){
 		List<Encontrado> listadoEncontrado = this.encontradoService.listarEncontrado();
+		System.out.println("encontro");
 		return ResponseEntity.ok(listadoEncontrado);
 	}
 	@GetMapping

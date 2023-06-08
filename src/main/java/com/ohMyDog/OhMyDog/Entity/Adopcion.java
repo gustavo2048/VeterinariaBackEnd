@@ -1,10 +1,13 @@
 package com.ohMyDog.OhMyDog.Entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ohMyDog.OhMyDog.DTO.AdopcionDTO;
 import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 
 import java.sql.Date;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
@@ -52,8 +56,14 @@ public class Adopcion {
 	@Column(name = "fechaCreacion")
 	private Date fechaCreacion;
 	
-	@Column(name = "usuarioId")
-	private  int usuarioId;
+	
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Mascota mascota;
+	
+	@Column(name= "usuarioId")
+	private int usuarioId;
 	
 /*	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -72,6 +82,7 @@ public class Adopcion {
 		this.setAdoptado(adopcion.isAdoptado());
 		this.setBorrado(adopcion.isBorrado());
 		this.setTitulo(adopcion.getTitulo());
+		this.setUsuarioId(adopcion.getUsuarioId());
 		
 		this.setTitulo(adopcion.getSexo());
 		this.setTitulo(adopcion.getTamanio());
@@ -80,11 +91,14 @@ public class Adopcion {
 		this.setDescripcion(adopcion.getDescripcion());
 		this.setMotivo(adopcion.getMotivo());
 		this.setFechaCreacion(adopcion.getFechaCreacion());
-		this.setUsuarioId(adopcion.getUsuarioId());
 	}
 	
-	
-	
+	public Mascota getMascota() {
+		return this.mascota;
+	}
+	public void setMascota(Mascota mascota) {
+		this.mascota=mascota;
+	}
 	public int getId() {
 		return id;
 	}

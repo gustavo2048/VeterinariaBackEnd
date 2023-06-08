@@ -24,7 +24,7 @@ public class AdopcionDTO {
 	private String sexo;
 	private String raza;
 	private String tamanio;
-	
+	private int mascota;
 	private int usuarioId;
 	//private Usuario usuario;	
 	
@@ -45,7 +45,7 @@ public class AdopcionDTO {
 		this.setDescripcion(adopcion.getDescripcion());
 		this.setMotivo(adopcion.getMotivo());
 		this.setFechaCreacion(adopcion.getFechaCreacion());
-		this.setUsuarioId(adopcion.getUsuarioId());
+
 		//this.usuario = usuario;
 	}
 	public int getId() {
@@ -115,6 +115,7 @@ public class AdopcionDTO {
 	public void setTamanio(String tamanio) {
 		this.tamanio = tamanio;
 	}
+
 	
 	
 

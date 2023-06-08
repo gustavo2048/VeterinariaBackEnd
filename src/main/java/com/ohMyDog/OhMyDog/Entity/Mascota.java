@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 
 import jakarta.persistence.Column;
@@ -54,12 +55,22 @@ public class Mascota {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
+	private List<Encontrado> encontrados;
+	
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
 	private List<Turnos> turnos;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
+	private List<Adopcion> adopcion;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
+	private List<Perdido> perdido;
 	
 	public Mascota() {
 		// TODO Auto-generated constructor stub
