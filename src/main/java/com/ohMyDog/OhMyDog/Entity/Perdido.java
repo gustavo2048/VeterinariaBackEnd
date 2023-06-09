@@ -68,7 +68,6 @@ public class Perdido {
 		
 	}
 	public Perdido(PerdidoDTO perdido) {
-		
 		this.setDescripcion(perdido.getDescripcion());	
 		this.setFechaPerdido(perdido.getFechaPerdido());
 		this.setGenero(perdido.getGenero());

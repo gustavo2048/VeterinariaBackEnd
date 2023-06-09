@@ -13,7 +13,21 @@ public class EncontradoDTO {
 	private String genero;
 	private boolean duenio;
 	private int usuarioId;
-	private int mascota;
+	private int mascotaId;
+	
+	
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(int usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+	public int getMascotaId() {
+		return mascotaId;
+	}
+	public void setMascotaId(int mascotaId) {
+		this.mascotaId = mascotaId;
+	}
 	public EncontradoDTO() {
 		
 	}

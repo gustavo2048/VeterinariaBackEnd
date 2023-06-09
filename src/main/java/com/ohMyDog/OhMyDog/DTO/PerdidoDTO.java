@@ -12,9 +12,15 @@ public class PerdidoDTO {
 	private String genero;
 	private boolean encontrado;
 	private int usuarioId;
-	private int mascota;
+	private int mascotaId;
 	
 	
+	public int getMascotaId() {
+		return mascotaId;
+	}
+	public void setMascotaId(int mascotaId) {
+		this.mascotaId = mascotaId;
+	}
 	public PerdidoDTO() {
 		
 	}
@@ -29,10 +35,10 @@ public class PerdidoDTO {
 	
 	}
 	public int getMascota() {
-		return mascota;
+		return mascotaId;
 	}
 	public void setMascota(int mascota) {
-		this.mascota=mascota;
+		this.mascotaId=mascota;
 	}
 	public boolean isEncontrado() {
 		return encontrado;
