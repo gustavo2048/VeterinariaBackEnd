@@ -33,8 +33,7 @@ public class turnoServiceIMPL implements TurnosService {
 
 	@Override
 	public Turnos modificarTurno(Turnos turno) {
-		// No se implementa
-		return null;
+		return this.repo.save(turno);
 	}
 
 	@Override
@@ -85,6 +84,16 @@ public class turnoServiceIMPL implements TurnosService {
 	@Override
 	public List<Turnos> listarTurnosConfirmados() {
 		return this.repo.turnosConfirmados() ;
+	}
+
+	@Override
+	public int cantidadTurnosDia(Date dia) {
+		return this.repo.turnosDia(dia); 
+	}
+
+	@Override
+	public List<Turnos> listarHistorialVeterinario(Date dia) {
+		return this.repo.historialTurnos(dia);
 	}
 
 	

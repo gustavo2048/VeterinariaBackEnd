@@ -37,6 +37,23 @@ public class EmailService {
 		}
 	}
 	
+	public void sendNotification(String emailDestino, String asunto, String motivo) {
+MimeMessage message = javaMailSender.createMimeMessage();
+		
+		try {
+			MimeMessageHelper helper =  new MimeMessageHelper(message,true);
+			helper.setFrom(email);
+			helper.setTo(emailDestino);
+			helper.setBcc("veterinariopablo1@gmail.com");
+			helper.setSubject(asunto);
+			helper.setText(motivo);
+			
+			javaMailSender.send(message);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	
 }

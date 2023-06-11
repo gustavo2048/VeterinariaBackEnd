@@ -26,4 +26,11 @@ public interface TurnosRepository extends CrudRepository<Turnos, Integer> {
 	
 	@Query(value="SELECT * FROM turno t WHERE t.fecha_solicitada =?1 and t.estado_solicitud = 'CONFIRMADO' ", nativeQuery = true)
 	public  List<Turnos> confirmadosHoy(Date fechaActual);
+	
+	@Query(value="SELECT count(*) FROM `turno` t WHERE t.borrado = false AND t.estado_solicitud = 'CONFIRMADO' and fecha_asignada = ?1 ", nativeQuery = true)
+	public int turnosDia(Date fechaSolicitada);
+	
+	@Query(value="SELECT * FROM `turno` t WHERE t.fecha_asignada < ?1 or t.estado_solicitud = 'CANCELADO'", nativeQuery = true)
+	public List<Turnos> historialTurnos(Date FechaActual);
+	
 }

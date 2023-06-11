@@ -22,6 +22,8 @@ public interface TurnosService {
 
 	public List<Turnos> listarHistorial(Usuario usuario);
 	
+	public List<Turnos> listarHistorialVeterinario(Date dia);
+	
 	public List<Turnos> listarTurnosDiaPendientes(Date dia); 
 	
 	public List<Turnos> listarTurnosDiaConfirmados(Date dia);
@@ -29,5 +31,7 @@ public interface TurnosService {
 	public List<Turnos> listadoTurnosPendientes();
 	
 	public List<Turnos> listarTurnosConfirmados();
+	
+	public int cantidadTurnosDia(Date dia);
 	
 }

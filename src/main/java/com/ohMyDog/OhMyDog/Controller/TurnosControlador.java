@@ -137,5 +137,58 @@ public class TurnosControlador {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(listadoConfirmados);
 	}
 	
+	@GetMapping
+	@RequestMapping(value="turnosHistorial", method = RequestMethod.GET)
+	public ResponseEntity<?> turnosHistorial(){
+		// Sacar la fecha de hoy sin HORAS
+		Date fechActual = new Date();
+		fechActual.setHours(00);
+		fechActual.setMinutes(00);
+		fechActual.setSeconds(00);
+		System.out.println(fechActual);
+				
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.turnoService.listarHistorialVeterinario(fechActual));
+	}
+	
+	@PostMapping
+	@RequestMapping(value="turnosDia", method = RequestMethod.POST )
+	public ResponseEntity<?> cantidadTurnosDia(@RequestBody Date dia){
+		
+		int dias = this.turnoService.cantidadTurnosDia(dia);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(dias);
+	}
+	
+	@PostMapping
+	@RequestMapping(value="asignarFecha", method = RequestMethod.POST )
+	public ResponseEntity<?> asignarFecha(@RequestBody TurnosDTO turno){
+		Turnos actualTurno = new Turnos(turno);
+		actualTurno.setEstadoSolicitud("CONFIRMADO");
+		actualTurno.setFechaAsignada(turno.getFechaAsignada());
+		actualTurno.setFechaCreado(turno.getFechaCreado());
+		actualTurno.setId(turno.getId());
+		actualTurno.setMascota(this.mascotaService.BuscarMascota(turno.getIdMascota()));
+		actualTurno.setUsuario(this.usuarioService.BuscarUsuario(turno.getIdUsuarioSolicitante()));
+		System.out.println(actualTurno);
+		String motivo = "Se le a asignado la fecha: " + turno.getFechaAsignada().toString() + " a su turno";
+		String asunto = "Confirmacion de Turno " + actualTurno.getUsuario().getNombre() + " " + actualTurno.getUsuario().getApellido();
+		this.emailService.sendNotification(actualTurno.getUsuario().getEmail(), asunto, motivo);
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.turnoService.modificarTurno(actualTurno));
+	}
+	
+	@PostMapping
+	@RequestMapping(value="anularTurno", method = RequestMethod.POST )
+	public ResponseEntity<?> anularTurno(@RequestBody TurnosDTO turno){
+		Turnos actualTurno = new Turnos(turno);
+		actualTurno.setEstadoSolicitud("CANCELADO");
+		actualTurno.setFechaCreado(turno.getFechaCreado());
+		actualTurno.setId(turno.getId());
+		actualTurno.setBorrado(true);//Para que no se liste
+		actualTurno.setMascota(this.mascotaService.BuscarMascota(turno.getIdMascota()));
+		actualTurno.setUsuario(this.usuarioService.BuscarUsuario(turno.getIdUsuarioSolicitante()));
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.turnoService.modificarTurno(actualTurno));
+	}
+	
+	
 
 }
