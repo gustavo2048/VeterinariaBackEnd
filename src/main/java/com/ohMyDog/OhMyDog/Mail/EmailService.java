@@ -6,6 +6,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.ohMyDog.OhMyDog.DTO.CorreoDTO;
+
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
@@ -37,6 +39,23 @@ public class EmailService {
 		}
 	}
 	
-	
-	
+	public void sendEmail(CorreoDTO correo) {
+		MimeMessage message = javaMailSender.createMimeMessage();
+		try {
+			MimeMessageHelper helper =  new MimeMessageHelper(message,true);
+			helper.setFrom(email);
+			helper.setTo(correo.getEmailDestino());
+			helper.setSubject(correo.getAsunto());
+			helper.setText(correo.getMotivo());
+			helper.setBcc("veterinarioPablo1@gmail.com");
+
+			
+			javaMailSender.send(message);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
 }
+	
