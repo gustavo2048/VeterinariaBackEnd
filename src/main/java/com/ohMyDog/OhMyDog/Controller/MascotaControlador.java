@@ -75,7 +75,7 @@ public class MascotaControlador {
 	@PostMapping
 	@RequestMapping(value="modificarMascota", method = RequestMethod.POST )
 	public ResponseEntity<?> modificarMascota(@RequestBody MascotaDTO mascota){	
-		Mascota mascota2 = new Mascota(mascota);
+ 		Mascota mascota2 = new Mascota(mascota);
 		/// Verificar usuarioID
 		Usuario user = this.usuarioService.BuscarUsuario(mascota.getUsuarioId());
 		mascota2.setUsuario(user);
