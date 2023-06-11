@@ -1,7 +1,5 @@
 package com.ohMyDog.OhMyDog.DTO;
 
-
-
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +23,8 @@ public class MascotaDTO {
 	private String foto;
 	private int usuarioId;
 	private Usuario usuario;
+
+	private String sexo;
 	
 	public MascotaDTO() {
 		// TODO Auto-generated constructor stub
@@ -34,12 +34,16 @@ public class MascotaDTO {
 		this.setId(mascota.getId());
 		this.setBorrado(mascota.isBorrado());
 		this.setNombre(mascota.getNombre());
+		
 		this.setRaza(mascota.getRaza());
 		this.setEdad(mascota.getEdad());
 		this.setTamanio(mascota.getTamanio());
 		this.setColor(mascota.getColor());
+		
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
+		this.setSexo(mascota.getSexo());
+		
 		//this.setUsuario(new Usuario());
 		
 	}
@@ -124,7 +128,6 @@ public class MascotaDTO {
 	public void setUsuarioId(int id) {
 		this.usuarioId=id;
 	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -133,4 +136,12 @@ public class MascotaDTO {
 		this.usuario = usuario;
 	}
 
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
 }

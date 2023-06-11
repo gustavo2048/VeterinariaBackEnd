@@ -50,20 +50,29 @@ public class Adopcion {
 	@Column(name = "raza")
 	private String raza;
 	
+	public Mascota getMascota() {
+		return mascota;
+	}
+	public void setMascota(Mascota mascota) {
+		this.mascota = mascota;
+	}
+
 	@Column(name = "descripcion")
 	private String descripcion;
 	
 	@Column(name = "fechaCreacion")
 	private Date fechaCreacion;
-	
+
+	@Column(name= "usuarioId")
+	private int usuarioId;
 	
 	
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Mascota mascota;
 	
-	@Column(name= "usuarioId")
-	private int usuarioId;
+	
+	
 	
 /*	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -84,21 +93,18 @@ public class Adopcion {
 		this.setTitulo(adopcion.getTitulo());
 		this.setUsuarioId(adopcion.getUsuarioId());
 		
-		this.setTitulo(adopcion.getSexo());
-		this.setTitulo(adopcion.getTamanio());
-		this.setTitulo(adopcion.getRaza());
+		this.setSexo(adopcion.getSexo());
+		this.setTamanio(adopcion.getTamanio());
+		this.setRaza(adopcion.getRaza());
 		
 		this.setDescripcion(adopcion.getDescripcion());
 		this.setMotivo(adopcion.getMotivo());
 		this.setFechaCreacion(adopcion.getFechaCreacion());
+	
+
 	}
 	
-	public Mascota getMascota() {
-		return this.mascota;
-	}
-	public void setMascota(Mascota mascota) {
-		this.mascota=mascota;
-	}
+
 	public int getId() {
 		return id;
 	}
@@ -181,6 +187,9 @@ public class Adopcion {
 	public void setUsuarioId(int usuarioId) {
 		this.usuarioId = usuarioId;
 	}
+	
+	
+
 	
 /*	public Usuario getUsuario() {
 		return usuario;

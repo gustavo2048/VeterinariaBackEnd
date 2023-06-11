@@ -24,7 +24,8 @@ public class AdopcionDTO {
 	private String sexo;
 	private String raza;
 	private String tamanio;
-	private int mascota;
+	private int mascotaId;
+
 	private int usuarioId;
 	//private Usuario usuario;	
 	
@@ -38,9 +39,9 @@ public class AdopcionDTO {
 		this.setBorrado(adopcion.isBorrado());
 		this.setTitulo(adopcion.getTitulo());
 		
-		this.setTitulo(adopcion.getSexo());
-		this.setTitulo(adopcion.getTamanio());
-		this.setTitulo(adopcion.getRaza());
+		this.setSexo(adopcion.getSexo());
+		this.setTamanio(adopcion.getTamanio());
+		this.setRaza(adopcion.getRaza());
 		
 		this.setDescripcion(adopcion.getDescripcion());
 		this.setMotivo(adopcion.getMotivo());
@@ -115,7 +116,13 @@ public class AdopcionDTO {
 	public void setTamanio(String tamanio) {
 		this.tamanio = tamanio;
 	}
-
+	
+	public int getMascotaId() {
+		return mascotaId;
+	}
+	public void setMascotaId(int mascotaId) {
+		this.mascotaId = mascotaId;
+	}
 	
 	
 

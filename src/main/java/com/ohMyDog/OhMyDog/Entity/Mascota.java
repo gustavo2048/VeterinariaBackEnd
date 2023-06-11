@@ -42,6 +42,10 @@ public class Mascota {
 	@Column(name = "edad")
 	private Date edad;
 	
+	@Column(name = "sexo")
+	private String sexo;
+	
+
 	@Column(name = "tamanio")
 	private String tamanio;
 	
@@ -51,10 +55,14 @@ public class Mascota {
 	@Column(name = "foto")
 	private String foto;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
+	private List<Adopcion> adopciones;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
 	private List<Encontrado> encontrados;
@@ -64,9 +72,8 @@ public class Mascota {
 	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
 	private List<Turnos> turnos;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
-	private List<Adopcion> adopcion;
+
+	
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "mascota", fetch = FetchType.EAGER)
@@ -86,6 +93,8 @@ public class Mascota {
 		this.setTamanio(mascota.getTamanio());
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
+		this.setSexo(mascota.getSexo());
+		
 	}
 	
 	public int getId() {
@@ -169,6 +178,16 @@ public class Mascota {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
 
 	
 }

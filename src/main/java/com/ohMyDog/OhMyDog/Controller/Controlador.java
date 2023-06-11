@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,17 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ohMyDog.OhMyDog.DTO.CorreoDTO;
 import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
 import com.ohMyDog.OhMyDog.DTO.UsuarioDTO;
 import com.ohMyDog.OhMyDog.Entity.Cliente;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
+import com.ohMyDog.OhMyDog.Mail.EmailService;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.personServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
 
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("usuario")
+@RequestMapping("veterinaria")
 public class Controlador {
 
 	@Autowired
@@ -36,6 +40,14 @@ public class Controlador {
 	
 	@Autowired
 	private mascotaServiceIMPL mascotaService;
+	
+	private final EmailService emailService;
+	
+	@Autowired
+	public Controlador(EmailService emailService) {
+		this.emailService = emailService;
+	}
+	
 	
 
 	@PostMapping
@@ -57,6 +69,17 @@ public class Controlador {
 	public ResponseEntity<?> eliminarCliente(@PathVariable int id ){
 		this.impl.EliminarCliente(id);
 		return ResponseEntity.ok().build();
+	}
+	
+	
+	@PostMapping
+	@RequestMapping(value="envioEmail", method = RequestMethod.POST )
+	public ResponseEntity<?> envioEmail(@RequestBody CorreoDTO correo){
+		System.out.println("Ingreso al endPoint");
+		
+		this.emailService.sendEmail(correo);
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body("se envio mail?");
 	}
 	
 	

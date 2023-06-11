@@ -20,6 +20,7 @@ import com.ohMyDog.OhMyDog.Entity.Adopcion;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.ServiceIMPL.adopcionServiceIMPL;
+import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 
 
 
@@ -31,16 +32,22 @@ public class AdopcionControlador {
 	@Autowired
 	private adopcionServiceIMPL adopcionService;
 	
+	@Autowired
+	private mascotaServiceIMPL mascotaService;
+	
+	
 	@PostMapping
 	@RequestMapping(value="crearAdopcion", method = RequestMethod.POST )
-	public ResponseEntity<?> crearAdopcion(@RequestBody Adopcion adopcion){
-		Adopcion nuevaAdopcion = adopcionService.crearAdopcion(adopcion);		
-	
+	public ResponseEntity<?> crearAdopcion(@RequestBody AdopcionDTO adopcion){
+		Adopcion nuevaAdopcion = new Adopcion(adopcion);		
+		Mascota mascota = mascotaService.BuscarMascota(adopcion.getMascotaId());
+		nuevaAdopcion.setMascota(mascota);
+		
 		System.out.println("lskdlsdklsk");
 		
 		///FALTA RELACIONARLO CON EL USUARIO
 		//Mascota nuevaMascota2 = this.mascotaService.crearMascota(nuevaMascota);		
-		return ResponseEntity.status(HttpStatus.CREATED).body(nuevaAdopcion);
+		return ResponseEntity.status(HttpStatus.CREATED).body(adopcionService.crearAdopcion(nuevaAdopcion));
 	}
 	
 	@PostMapping
