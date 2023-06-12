@@ -52,8 +52,13 @@ public class AdopcionControlador {
 	
 	@PostMapping
 	@RequestMapping(value="modificarAdopcion", method = RequestMethod.POST )
-	public ResponseEntity<?> modificarMascota(@RequestBody Adopcion adopcion){	
-		Adopcion adopcion2 = this.adopcionService.modificarAdopcion(adopcion);		
+	public ResponseEntity<?> modificarMascota(@RequestBody Adopcion adopcion){
+		System.out.println(adopcion);
+		Mascota mascotaCambiar = this.mascotaService.BuscarMascota(adopcion.getMascota().getId());
+		mascotaCambiar.setBorrado(true);
+		this.mascotaService.modificarMascota(mascotaCambiar);
+		Adopcion adopcion2 = this.adopcionService.modificarAdopcion(adopcion);
+		
 		return ResponseEntity.ok(adopcion2);
 	}
 	
