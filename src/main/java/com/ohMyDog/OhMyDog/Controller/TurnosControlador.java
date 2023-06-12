@@ -86,6 +86,11 @@ public class TurnosControlador {
 					Date hoy = new Date();
 					turnoSolicitud.setFechaCreado(hoy);
 					nuevoTurno = turnoService.crearTurno(turnoSolicitud);
+					
+					String motivo = "Tiene una nueva solicitud de turno pendiente. En breve recibira una notificacion cuando se le asigne una fecha de turno";
+					String asunto = "Nueva solicitud de Turno en la veterinaria OhMyDog ";
+					this.emailService.sendNotification(user.getEmail(), asunto, motivo);
+					
 				}else {
 					 System.out.println("#### Ya dispone de turnos para la mascota en el mismo dia");
 					 nuevoTurno.setId(-2);
