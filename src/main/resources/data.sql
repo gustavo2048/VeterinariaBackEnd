@@ -8,14 +8,14 @@ VALUES ('Roberto',false,'3333','calle123','veterinario1@gmail.com','Pedro',1234,
 
 
 -- TABLA MASCOTA
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`,`edad`,`sexo`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', 'macho', NULL, 'Oddie', 'callejero', 'grande', '1');
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`,`foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','hembra', NULL, 'Nancy', 'callejero', 'grande', '1');
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','hembra', NULL, 'Cristal', 'callejero', 'grande', '2');
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy', 'callejero', 'grande', '2');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`,`edad`,`sexo`, `foto`, `nombre`, `publicado`,`raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', 'macho', NULL, 'Oddie',false, 'callejero', 'grande', '1');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`,`foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','hembra', NULL, 'Nancy',false, 'callejero', 'grande', '1');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','hembra', NULL, 'Cristal',false, 'callejero', 'grande', '2');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
+VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy',false, 'callejero', 'grande', '2');
 
 -- TABLA ENCONTRADOS
 INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
@@ -39,11 +39,11 @@ INSERT INTO `adopcion` (`adoptado`, `borrado`, `descripcion`, `fecha_creacion`, 
 VALUES (b'00000', b'00000', 'Se porta increible', NULL, 'No tenemos mas lugar', 'Callejero', 'Macho', 'Grande', 'Es un amor',4, 2);
 -- TABLA PASEADORES
 
-INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
-VALUES (NULL, false, 'Lomas', false, 'Mas de 10 anios de experiencia', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
-INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
-VALUES (NULL, false, 'Gutierrez', false, 'Amante de los perros', 'lomas@2lomas', NULL, 'Maniana', 'Tobias', 'Zona Pza Rocha');
-INSERT INTO `paseador` (`id`, `activo`, `apellido`, `borrado`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, false, 'Lomas', true, 'Mas de 10 anios de experiencia', 'lomas@lomas', NULL, 'Tarde', 'Tomas', 'Centro');
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, false, 'Gutierrez', true, 'Amante de los perros', 'lomas@2lomas', NULL, 'Maniana', 'Tobias', 'Zona Pza Rocha');
+INSERT INTO `paseador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
 VALUES (NULL, false, 'Torres', false, 'Puntual', 'lomas@lomas1', NULL, 'Tarde', 'Gaston', 'Centro');
 
 -- TABLA TURNOS

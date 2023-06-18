@@ -40,7 +40,7 @@ public class PerdidoControlador {
 	public ResponseEntity<?> crearPerdido(@RequestBody PerdidoDTO perdido){
 		Mascota mascota1 = mascotaService.BuscarMascota(perdido.getMascota());
 		Usuario usuario1 = usuarioService.BuscarUsuario(perdido.getUsuarioId());
-		
+		mascota1.setPublicado(true);
 		Perdido nuevaEncontrado = new Perdido(perdido); 
 			//encontradoService.crearEncontrado(nuevaEncontrado);		
 	nuevaEncontrado.setMascota(mascota1);
@@ -77,7 +77,15 @@ public class PerdidoControlador {
 	}
 	@PostMapping
 	@RequestMapping(value="modificarPerdido", method = RequestMethod.POST )
-	public ResponseEntity<?> modificarPerdido(@RequestBody Perdido perdido){	
+	public ResponseEntity<?> modificarPerdido(@RequestBody Perdido perdido){
+		Mascota mascota1 = this.mascotaService.BuscarMascota(perdido.getMascota().getId());
+		if(perdido.isEncontrado()) {
+			mascota1.setPublicado(false);
+			perdido.setMascota(mascota1);
+		}else {
+			mascota1.setPublicado(true);
+			perdido.setMascota(mascota1);
+		}
 		Perdido perdido2 = this.perdidoService.modificarPerdido(perdido);		
 		return ResponseEntity.ok(perdido2);
 	}

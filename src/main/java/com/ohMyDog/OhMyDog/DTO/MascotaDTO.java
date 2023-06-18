@@ -21,6 +21,7 @@ public class MascotaDTO {
 	private String tamanio;
 	private String caracteristicas;
 	private String foto;
+	private boolean publicado;
 	private int usuarioId;
 	private Usuario usuario;
 
@@ -43,9 +44,17 @@ public class MascotaDTO {
 		this.setCaracteristicas(mascota.getCaracteristicas());
 		this.setFoto(mascota.getFoto());
 		this.setSexo(mascota.getSexo());
-		
+		this.setPublicado(mascota.isPublicado());
 		//this.setUsuario(new Usuario());
 		
+	}
+
+	public boolean isPublicado() {
+		return publicado;
+	}
+
+	public void setPublicado(boolean publicado) {
+		this.publicado = publicado;
 	}
 
 	public int getId() {

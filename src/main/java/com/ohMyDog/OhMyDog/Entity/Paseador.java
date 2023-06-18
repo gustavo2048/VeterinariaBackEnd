@@ -18,8 +18,8 @@ public class Paseador {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "borrado")
-	private boolean borrado;
+	@Column(name = "disponible")
+	private boolean disponible;
 	
 	@Column(name = "activo")
 	private boolean activo;
@@ -57,12 +57,12 @@ public class Paseador {
 		this.id = id;
 	}
 
-	public boolean isBorrado() {
-		return borrado;
+	public boolean isDisponible() {
+		return disponible;
 	}
 
-	public void setBorrado(boolean borrado) {
-		this.borrado = borrado;
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
 	}
 
 	public boolean isActivo() {

@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class PaseadorDTO {
 	private int id;
 	//private Date fechaCreacion;
-	private boolean borrado;
+	private boolean disponible;
 	private String zona;
 	private String nombre;
 	private String apellido;
@@ -25,7 +25,7 @@ public class PaseadorDTO {
 	}
 	public PaseadorDTO(Paseador paseador) {
 		this.setId(paseador.getId());
-		this.setBorrado(paseador.isBorrado());
+		this.setDisponible(paseador.isDisponible());
 		this.setApellido(paseador.getApellido());
 		this.setNombre(paseador.getNombre());
 		this.setZona(paseador.getZonaTrabajo());
@@ -63,12 +63,12 @@ public class PaseadorDTO {
 		this.id = id;
 	}
 
-	public boolean isBorrado() {
-		return borrado;
+	public boolean isDisponible() {
+		return disponible;
 	}
 
-	public void setBorrado(boolean borrado) {
-		this.borrado = borrado;
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
 	}
 	public String getZona() {
 		return zona;
