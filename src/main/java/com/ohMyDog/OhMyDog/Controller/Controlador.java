@@ -1,6 +1,7 @@
 package com.ohMyDog.OhMyDog.Controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ohMyDog.OhMyDog.DTO.CorreoDTO;
 import com.ohMyDog.OhMyDog.DTO.MascotaDTO;
@@ -23,6 +26,7 @@ import com.ohMyDog.OhMyDog.Entity.Cliente;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.Mail.EmailService;
+import com.ohMyDog.OhMyDog.Service.StorageService;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.personServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;

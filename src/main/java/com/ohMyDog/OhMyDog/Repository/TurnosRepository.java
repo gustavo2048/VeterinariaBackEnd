@@ -15,8 +15,11 @@ public interface TurnosRepository extends CrudRepository<Turnos, Integer> {
 	@Query(value = "SELECT * FROM turno t WHERE t.mascota_id= ?1 and t.usuario_id = ?2 and t.fecha_solicitada = ?3 ", nativeQuery = true)
 	public List<Turnos> verificarTurnoExistenteMismoDia(int idMascota,int idUsuario, Date fechaSolicitud); 
 	
-	@Query(value = "SELECT * FROM turno t WHERE (t.estado_solicitud = 'PENDIENTE' or t.estado_solicitud = 'CONFIRMADO' ) and usuario_id = ?1 ORDER BY t.fecha_creado DESC ", nativeQuery = true)
+	@Query(value = "SELECT * FROM turno t WHERE (t.estado_solicitud = 'PENDIENTE' or t.estado_solicitud = 'CONFIRMADO' ) and t.borrado = false and usuario_id = ?1 ORDER BY t.fecha_creado DESC ", nativeQuery = true)
 	public List<Turnos> misTurnosPendientes(int id);
+	
+	@Query(value = "SELECT * FROM turno t WHERE t.fecha_asignada < ?2 or t.estado_solicitud = 'CANCELADO' or t.estado_solicitud = 'ATENDIDO' and t.borrado = false and usuario_id = ?1 ORDER BY t.fecha_creado DESC ", nativeQuery = true)
+	public List<Turnos> misTurnosHistorial(int id,Date FechaActual);
 	
 	@Query(value= "SELECT * FROM turno t WHERE t.estado_solicitud = 'PENDIENTE' ORDER BY t.fecha_solicitada ASC; ",nativeQuery = true)
 	public List<Turnos> turnosPendientes();

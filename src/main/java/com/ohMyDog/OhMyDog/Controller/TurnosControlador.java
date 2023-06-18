@@ -115,7 +115,19 @@ public class TurnosControlador {
 	public ResponseEntity<?> getTurnosPendientes(@PathVariable int id){
 
 		List<Turnos> misTurnos = this.turnoService.listarMisTurnosPendientes(id);
+		
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(misTurnos);
+	}
+	
+	@GetMapping
+	@RequestMapping(value="miHistorialTurnos/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> getMiHistorialTurnos(@PathVariable int id){
+		Date fechActual = new Date();
+		fechActual.setHours(00);
+		fechActual.setMinutes(00);
+		fechActual.setSeconds(00);
+		
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.turnoService.listarMiHistorialTurnos(id, fechActual));
 	}
 	
 	@PostMapping
