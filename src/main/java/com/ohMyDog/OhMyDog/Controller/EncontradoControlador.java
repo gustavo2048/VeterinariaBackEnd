@@ -38,12 +38,10 @@ public class EncontradoControlador {
 	@PostMapping
 	@RequestMapping(value="crearEncontrado", method = RequestMethod.POST )
 	public ResponseEntity<?> crearEncontrado(@RequestBody EncontradoDTO encontrado){
-		Mascota mascota1 = mascotaService.BuscarMascota(encontrado.getMascotaId());
 		Usuario usuario1 = usuarioService.BuscarUsuario(encontrado.getUsuarioId());
 		
 		Encontrado nuevaEncontrado = new Encontrado(encontrado); 
 			//encontradoService.crearEncontrado(nuevaEncontrado);		
-	nuevaEncontrado.setMascota(mascota1);
 	nuevaEncontrado.setUsuario(usuario1);
 		//System.out.println(encontradoService.crearEncontrado(nuevaEncontrado));
 		

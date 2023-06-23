@@ -17,6 +17,8 @@ public interface TurnosService {
 	public List<Turnos> listarMisTurnoPendientes(Usuario usuario);
 	
 	public List<Turnos> listarMisTurnosPendientes(int id);
+	
+	public List<Turnos> listarMiHistorialTurnos(int id, Date dia);
 
 	public List<Turnos> verificarTurnoExistenteMismoDia(int idMascota,int idUsuario, Date fechaSolicitud);
 

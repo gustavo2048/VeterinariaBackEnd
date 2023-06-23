@@ -25,14 +25,27 @@ public class Encontrado {
 	
 	@Column(name = "duenio")
 	private boolean duenio;
-
+	
+	@Column(name = "tam")
+	private String tam;
+	
+	
+	@Column(name = "sexo")
+	private String sexo;
+	
+	@Column(name = "foto")
+	private String foto;
+	
+	@Column(name = "raza")
+	private String raza;
+	
+	@Column(name = "color")
+	private String color;
+	
 	
 	@Column(name = "lugar")
 	private String lugar;
 	
-	@Column(name = "genero")
-	private String genero;
-
 	
 	@Column(name = "descripcion")
 	private String descripcion;
@@ -70,14 +83,48 @@ public class Encontrado {
 	public Encontrado(EncontradoDTO e) {
 		this.setDuenio(e.isDuenio());
 		this.setFechaEncontrado(e.getFechaEncontrado());
-		this.setGenero(e.getGenero());
+		
 		this.setId(e.getId());
 		this.setLugar(e.getLugar());
 		this.setDescripcion(e.getDescripcion());
-		
+		this.setRaza(e.getRaza());
+		this.setColor(e.getColor());
+		this.setTam(e.getTam());
+		this.setFoto(e.getFoto());
+		this.setSexo(e.getSexo());
 
 	}
 	
+	public String getTam() {
+		return tam;
+	}
+	public void setTam(String tamanio) {
+		this.tam = tamanio;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	public String getRaza() {
+		return raza;
+	}
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
 	public int getId() {
 		return id;
 	}
@@ -102,13 +149,7 @@ public class Encontrado {
 		this.lugar = lugar;
 	}
 
-	public String getGenero() {
-		return genero;
-	}
 
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
 
 	public String getDescripcion() {
 		return descripcion;

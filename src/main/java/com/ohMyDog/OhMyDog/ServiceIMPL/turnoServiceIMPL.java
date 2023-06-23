@@ -96,6 +96,12 @@ public class turnoServiceIMPL implements TurnosService {
 		return this.repo.historialTurnos(dia);
 	}
 
+	@Override
+	public List<Turnos> listarMiHistorialTurnos(int id, Date dia) {
+		return this.repo.misTurnosHistorial(id, dia);
+
+	}
+
 	
 
 }

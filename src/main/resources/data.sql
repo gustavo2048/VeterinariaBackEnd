@@ -15,19 +15,27 @@ VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','hembr
 INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
 VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','hembra', NULL, 'Cristal',false, 'callejero', 'grande', '2');
 INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy',false, 'callejero', 'grande', '2');
+VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy',true, 'callejero', 'grande', '2');
 
 -- TABLA ENCONTRADOS
-INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
-VALUES (NULL, 'Encontre este perro lastimado', false, '2023-06-05', 'macho', 'Centro', '2', '1');
-INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
-VALUES (NULL, 'No tiene collar', true, '2023-06-05', 'macho', 'Plaza Malvinas', '1', '1');
+INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `color`,`tam`,`sexo`, `foto`, `raza`, `lugar`, `usuario_id`)
+VALUES (NULL, 'Encontre este perro lastimado', false, '2023-06-05', 'negro','mediano','macho',NULL,'mestizo', 'Centro', '1');
+INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `color`,`tam`,`sexo`, `foto`, `raza`, `lugar`, `usuario_id`)
+VALUES (NULL, 'No tiene collar', true, '2023-06-05', 'negro','mediano','hembra',NULL,'mestizo', 'Plaza Malvinas', '1');
+
 
 -- TABLA PERDIDOS
 INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
 VALUES (NULL, 'Perdi mi perro tiene collar',false, '2023-06-01', 'macho', '9 Y 60', '3', '2');
 INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
 VALUES (NULL, 'Se escapo mi perrito es ciego', true, '2023-06-01', 'macho', 'Plaza rocha', '4', '2');
+
+
+-- TABLA DE DONACIONES A PERROS
+INSERT INTO `donacion_perro` (`id`, `cbu`, `descripcion`, `fecha_limite`, `historia`, `monto`) 
+VALUES (NULL, '234231432', 'terriblemente atropellado se parece a marcos', '2023-07-28', 'amigable, amoroso y bondadoso. Vivio mucho tiempo en la calle hasta que lo rescato la duenia', '33456');
+INSERT INTO `donacion_perro` (`id`, `cbu`, `descripcion`, `fecha_limite`, `historia`, `monto`) 
+VALUES (NULL, '2341432', 'le falta una pata le van a cortar la otra', '2023-08-1', ' Vivio mucho tiempo en la calle es callejero', '4500');
 
 
 -- TABLA ADOPCIONES
