@@ -32,10 +32,17 @@ VALUES (NULL, 'Se escapo mi perrito es ciego', true, '2023-06-01', 'macho', 'Pla
 
 
 -- TABLA DE DONACIONES A PERROS
-INSERT INTO `donacion_perro` (`id`, `cbu`, `descripcion`, `fecha_limite`, `historia`, `monto`) 
-VALUES (NULL, '234231432', 'terriblemente atropellado se parece a marcos', '2023-07-28', 'amigable, amoroso y bondadoso. Vivio mucho tiempo en la calle hasta que lo rescato la duenia', '33456');
-INSERT INTO `donacion_perro` (`id`, `cbu`, `descripcion`, `fecha_limite`, `historia`, `monto`) 
-VALUES (NULL, '2341432', 'le falta una pata le van a cortar la otra', '2023-08-1', ' Vivio mucho tiempo en la calle es callejero', '4500');
+INSERT INTO `donacion_perro` (`id`, `cbu`, `descripcion`, `fecha_limite`, `foto`, `historia`, `monto`) 
+VALUES (NULL, '234231432', 'terriblemente atropellado se parece a marcos', '2023-06-22',NULL, 'amigable, amoroso y bondadoso. Vivio mucho tiempo en la calle hasta que lo rescato la duenia', '33456');
+INSERT INTO `donacion_perro` (`id`, `cbu`, `descripcion`, `fecha_limite`, `foto`, `historia`, `monto`) 
+VALUES (NULL, '2341432', 'le falta una pata le van a cortar la otra', '2023-08-1',NULL, ' Vivio mucho tiempo en la calle es callejero', '4500');
+
+
+-- TABLA DE DONACIONES A REFUGIOS
+INSERT INTO `donacion_refugio` (`id`, `cbu`, `contacto`, `fecha_limite`, `foto`, `causa`, `monto`, `zona`) 
+VALUES (NULL, '23421422', 'elparaiso@gmail.com', '2023-06-17',NULL,'perro hambrientos', '133000', 'parque arana');
+INSERT INTO `donacion_refugio` (`id`, `cbu`, `contacto`, `fecha_limite`, `foto`, `causa`, `monto`, `zona`) 
+VALUES (NULL, '23421422', 'elchato@gmail.com', '2023-08-17',NULL,'ataque de garrapatas y pulgas', '133000', 'parque saavedra');
 
 
 -- TABLA ADOPCIONES
