@@ -48,6 +48,9 @@ public class Mascota {
 	@Column(name="publicado")
 	private boolean publicado;
 	
+	@Column(name="enAdopcion")
+	private boolean enAdopcion;
+	
 
 	@Column(name = "tamanio")
 	private String tamanio;
@@ -98,6 +101,7 @@ public class Mascota {
 		this.setFoto(mascota.getFoto());
 		this.setSexo(mascota.getSexo());
 		this.setPublicado(mascota.isPublicado());
+		this.setEnAdopcion(mascota.isEnAdopcion());
 	}
 	
 	public boolean isPublicado() {
@@ -191,6 +195,14 @@ public class Mascota {
 	}
 	
 	
+	public boolean isEnAdopcion() {
+		return enAdopcion;
+	}
+
+	public void setEnAdopcion(boolean enAdopcion) {
+		this.enAdopcion = enAdopcion;
+	}
+
 	public String getSexo() {
 		return sexo;
 	}

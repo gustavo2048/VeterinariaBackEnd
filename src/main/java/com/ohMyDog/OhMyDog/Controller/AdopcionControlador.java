@@ -41,6 +41,9 @@ public class AdopcionControlador {
 	public ResponseEntity<?> crearAdopcion(@RequestBody AdopcionDTO adopcion){
 		Adopcion nuevaAdopcion = new Adopcion(adopcion);		
 		Mascota mascota = mascotaService.BuscarMascota(adopcion.getMascotaId());
+		mascota.setEnAdopcion(true);
+		mascotaService.modificarMascota(mascota);
+		
 		nuevaAdopcion.setMascota(mascota);
 		
 		System.out.println("lskdlsdklsk");
@@ -51,11 +54,22 @@ public class AdopcionControlador {
 	}
 	
 	@PostMapping
+	@RequestMapping(value="crearAdopcionSinMascota", method = RequestMethod.POST )
+	public ResponseEntity<?> crearAdopcionSinMascota(@RequestBody AdopcionDTO adopcion){
+		Adopcion nuevaAdopcion = new Adopcion(adopcion);	
+		System.out.println("lskdlsdklsk");
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(adopcionService.crearAdopcion(nuevaAdopcion));
+	}
+	
+	@PostMapping
 	@RequestMapping(value="modificarAdopcion", method = RequestMethod.POST )
 	public ResponseEntity<?> modificarMascota(@RequestBody Adopcion adopcion){
 		System.out.println(adopcion);
 		Mascota mascotaCambiar = this.mascotaService.BuscarMascota(adopcion.getMascota().getId());
 		mascotaCambiar.setBorrado(adopcion.isAdoptado());
+		// esta Adoptado
+		
 		this.mascotaService.modificarMascota(mascotaCambiar);
 		Adopcion adopcion2 = this.adopcionService.modificarAdopcion(adopcion);
 		

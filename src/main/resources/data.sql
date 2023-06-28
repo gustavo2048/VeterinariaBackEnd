@@ -8,14 +8,14 @@ VALUES ('Roberto',false,'3333','calle123','veterinario1@gmail.com','Pedro',1234,
 
 
 -- TABLA MASCOTA
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`,`edad`,`sexo`, `foto`, `nombre`, `publicado`,`raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', 'macho', NULL, 'Oddie',false, 'callejero', 'grande', '1');
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`,`foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','hembra', NULL, 'Nancy',false, 'callejero', 'grande', '1');
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','hembra', NULL, 'Cristal',false, 'callejero', 'grande', '2');
-INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`)
-VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy',true, 'callejero', 'grande', '2');
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`,`edad`,`sexo`, `foto`, `nombre`, `publicado`,`raza`, `tamanio`, `usuario_id`,`en_adopcion`)
+VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', 'macho', NULL, 'Oddie',false, 'callejero', 'grande', '1', true);
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`,`foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`,`en_adopcion`)
+VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','hembra', NULL, 'Nancy',false, 'callejero', 'grande', '1',false);
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`,`en_adopcion`)
+VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','hembra', NULL, 'Cristal',false, 'callejero', 'grande', '2',true);
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`,`en_adopcion`)
+VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy',true, 'callejero', 'grande', '2',true);
 
 -- TABLA ENCONTRADOS
 INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `color`,`tam`,`sexo`, `foto`, `raza`, `lugar`, `usuario_id`)
