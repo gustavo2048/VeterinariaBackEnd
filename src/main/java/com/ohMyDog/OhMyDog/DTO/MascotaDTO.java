@@ -24,6 +24,7 @@ public class MascotaDTO {
 	private boolean publicado;
 	private int usuarioId;
 	private Usuario usuario;
+	private boolean enAdopcion;
 
 	private String sexo;
 	
@@ -45,6 +46,7 @@ public class MascotaDTO {
 		this.setFoto(mascota.getFoto());
 		this.setSexo(mascota.getSexo());
 		this.setPublicado(mascota.isPublicado());
+		this.setEnAdopcion(mascota.isEnAdopcion());
 		//this.setUsuario(new Usuario());
 		
 	}
@@ -145,6 +147,14 @@ public class MascotaDTO {
 		this.usuario = usuario;
 	}
 
+
+	public boolean isEnAdopcion() {
+		return enAdopcion;
+	}
+
+	public void setEnAdopcion(boolean enAdopcion) {
+		this.enAdopcion = enAdopcion;
+	}
 
 	public String getSexo() {
 		return sexo;
