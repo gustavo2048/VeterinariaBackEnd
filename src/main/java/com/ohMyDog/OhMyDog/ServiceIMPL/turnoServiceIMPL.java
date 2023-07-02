@@ -72,8 +72,7 @@ public class turnoServiceIMPL implements TurnosService {
 
 	@Override
 	public List<Turnos> listarTurnosDiaConfirmados(Date dia) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repo.confirmadosHoy(dia);
 	}
 
 	@Override

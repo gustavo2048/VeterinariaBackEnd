@@ -28,6 +28,7 @@ public class usuarioServiceIMPL implements UsuarioService {
 		Usuario nuevoUsuario = new Usuario(usuario);
 		nuevoUsuario.setBorrado(false);
 		nuevoUsuario.setVerificado(false);
+		nuevoUsuario.setMontoDescuento(0);
 		return this.repo.save(nuevoUsuario);
 	}
 
