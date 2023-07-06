@@ -1,6 +1,9 @@
 package com.ohMyDog.OhMyDog.Entity;
 
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,23 +31,21 @@ public class Vacunas {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
+	@Column(name = "dosis")	
+	private String dosis;
+	
 	@Column(name = "fechaCreacion")
 	private Date fechaCreacion;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idVeterinarioRealizo")
-	private Usuario veterinarioRealizo;
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@OneToMany(mappedBy = "vacuna", fetch = FetchType.EAGER)
+	private List<HistoriaClinica> historiaClinica;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idHistoriaClinica")
-	private HistoriaClinica historiaClinica;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idMascotaAplicada")
-	private Mascota mascotaAplicada;
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Mascota mascota;
 
 	
-
 
 	public int getId() {
 		return id;
@@ -77,28 +79,5 @@ public class Vacunas {
 		this.fechaCreacion = fechaCreacion;
 	}
 	
-	public Usuario getVeterinarioRealizo() {
-		return veterinarioRealizo;
-	}
-
-	public void setVeterinarioRealizo(Usuario veterinarioRealizo) {
-		this.veterinarioRealizo = veterinarioRealizo;
-	}
-
-	public HistoriaClinica getHistoriaClinica() {
-		return historiaClinica;
-	}
-
-	public void setHistoriaClinica(HistoriaClinica historiaClinica) {
-		this.historiaClinica = historiaClinica;
-	}
-
-	public Mascota getMascotaAplicada() {
-		return mascotaAplicada;
-	}
-
-	public void setMascotaAplicada(Mascota mascotaAplicada) {
-		this.mascotaAplicada = mascotaAplicada;
-	}
 
 }

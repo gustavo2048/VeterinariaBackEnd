@@ -2,6 +2,8 @@ package com.ohMyDog.OhMyDog.Entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -30,8 +32,22 @@ public class HistoriaClinica {
 	@Column(name = "observacion")	
 	private String observacion;
 	
+	@Column(name = "motivo")	
+	private String motivo;
+	
+	@Column(name = "monto")	
+	private int monto;
+	
+	@Column(name = "peso")	
+	private String peso;
+	
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Vacunas vacuna;
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idMascota")
 	private Mascota mascota;
 
 	
