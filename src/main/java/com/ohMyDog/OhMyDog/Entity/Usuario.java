@@ -47,6 +47,9 @@ public class Usuario {
 	@Column(name = "dni")
 	private String dni;
 	
+	@Column(name = "montoDescuento")
+	private double montoDescuento;
+	
 	@Column(name = "domicilio")
 	private String domicilio;
 	
@@ -98,6 +101,14 @@ public class Usuario {
 	
 	
 	
+	public double getMontoDescuento() {
+		return montoDescuento;
+	}
+
+	public void setMontoDescuento(double montoDescuento) {
+		this.montoDescuento = montoDescuento;
+	}
+
 	public int getId() {
 		return id;
 	}

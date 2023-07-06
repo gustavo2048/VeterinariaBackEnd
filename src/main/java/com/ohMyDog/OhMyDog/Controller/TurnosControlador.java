@@ -172,6 +172,8 @@ public class TurnosControlador {
 	public ResponseEntity<?> cantidadTurnosDia(@RequestBody Date dia){
 		
 		int dias = this.turnoService.cantidadTurnosDia(dia);
+		System.out.println("############### Turnos del dia #############");
+		System.out.println(dia);
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(dias);
 	}
 	
@@ -206,6 +208,14 @@ public class TurnosControlador {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.turnoService.modificarTurno(actualTurno));
 	}
 	
-	
-
+	@GetMapping
+	@RequestMapping(value="listadoTurnosDia", method = RequestMethod.GET)
+	public ResponseEntity<?> listadoTurnosDia(){
+		Date fechActual = new Date();
+		fechActual.setHours(00);
+		fechActual.setMinutes(00);
+		fechActual.setSeconds(00);
+		List<Turnos> result = this.turnoService.listarTurnosDiaConfirmados(fechActual);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(result);
+	}
 }
