@@ -1,14 +1,12 @@
 package com.ohMyDog.OhMyDog.DTO;
+
 import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ohMyDog.OhMyDog.Entity.Paseador;
+import com.ohMyDog.OhMyDog.Entity.Cuidador;
 import com.ohMyDog.OhMyDog.Entity.Usuario;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
-public class PaseadorDTO {
+public class CuidadorDTO {
 	private int id;
 	//private Date fechaCreacion;
 	private boolean disponible;
@@ -20,18 +18,18 @@ public class PaseadorDTO {
 	private String descripcion;
 	private int usuarioId;
 	
-	public PaseadorDTO() {
+	public CuidadorDTO() {
 		
 	}
-	public PaseadorDTO(Paseador paseador) {
-		this.setId(paseador.getId());
-		this.setDisponible(paseador.isDisponible());
-		this.setApellido(paseador.getApellido());
-		this.setNombre(paseador.getNombre());
-		this.setZona(paseador.getZonaTrabajo());
-		this.setHorario(paseador.getHorarioTrabajo());
-		this.setEmail(paseador.getEmail());
-		this.setDescripcion(paseador.getDescripcion());
+	public CuidadorDTO(Cuidador cuidador) {
+		this.setId(cuidador.getId());
+		this.setDisponible(cuidador.isDisponible());
+		this.setApellido(cuidador.getApellido());
+		this.setNombre(cuidador.getNombre());
+		this.setZona(cuidador.getZonaTrabajo());
+		this.setHorario(cuidador.getHorarioTrabajo());
+		this.setEmail(cuidador.getEmail());
+		this.setDescripcion(cuidador.getDescripcion());
 		//this.setUsuarioId(paseador.getUsuario());
 	
 	}
@@ -95,4 +93,5 @@ public class PaseadorDTO {
 		this.descripcion = descripcion;
 	}
 	
+
 }
