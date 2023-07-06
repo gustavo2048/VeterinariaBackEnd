@@ -1,40 +1,55 @@
 package com.ohMyDog.OhMyDog.DTO;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
-import com.ohMyDog.OhMyDog.Entity.DonacionPerro;
-import com.ohMyDog.OhMyDog.Entity.Encontrado;
+import com.ohMyDog.OhMyDog.Entity.DonacionRefugio;
 
-public class DonacionPerroDTO {
+public class DonacionRefugioDTO {
 	private Date fechaLimite;
 	private double monto;
-	private String historia;
-	private String descripcion;
+	private String contacto;
+	private String zona;
 	private String CBU;
-
+	private String causa;
 	private String foto;
 	
-	public DonacionPerroDTO() {
+	public DonacionRefugioDTO() {
 		
 	}
-	public DonacionPerroDTO(DonacionPerro p) {
+	public DonacionRefugioDTO(DonacionRefugio p) {
 		this.setFechaLimite(p.getFechaLimite());
 		this.setMonto(p.getMonto());
-		this.setHistoria(p.getHistoria());
-		this.setDescripcion(p.getDescripcion());
+		this.setContacto(p.getContacto());	
 		this.setCBU(p.getCBU());
-		
+		this.setZona(p.getZona());
+		this.setCausa(p.getCausa());
 		this.setFoto(p.getFoto());
-		
 	}
 	
 	
+	public String getCausa() {
+		return causa;
+	}
+	public void setCausa(String causa) {
+		this.causa = causa;
+	}
 	public String getFoto() {
 		return foto;
 	}
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+	public String getContacto() {
+		return contacto;
+	}
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
+	}
+	public String getZona() {
+		return zona;
+	}
+	public void setZona(String zona) {
+		this.zona = zona;
 	}
 	public Date getFechaLimite() {
 		return fechaLimite;
@@ -48,18 +63,7 @@ public class DonacionPerroDTO {
 	public void setMonto(double monto) {
 		this.monto = monto;
 	}
-	public String getHistoria() {
-		return historia;
-	}
-	public void setHistoria(String historia) {
-		this.historia = historia;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	
 	public String getCBU() {
 		return CBU;
 	}

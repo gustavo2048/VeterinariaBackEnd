@@ -26,7 +26,7 @@ public class UsuarioDTO implements Serializable {
 	private boolean verificado;
 	private String rol;
 	private List<Mascota> mascotas;
-	private int montoDescuento;
+	private double montoDescuento;
 	
 	public UsuarioDTO() {
 		// TODO Auto-generated constructor stub
@@ -126,11 +126,11 @@ public class UsuarioDTO implements Serializable {
 		this.mascotas = mascotas;
 	}
 
-	public int getMontoDescuento() {
+	public double getMontoDescuento() {
 		return montoDescuento;
 	}
 
-	public void setMontoDescuento(int montoDescuento) {
+	public void setMontoDescuento(double montoDescuento) {
 		this.montoDescuento = montoDescuento;
 	}
 

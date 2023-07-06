@@ -1,10 +1,9 @@
 package com.ohMyDog.OhMyDog.Entity;
 
 import java.sql.Date;
-import java.time.LocalDate;
-
 
 import com.ohMyDog.OhMyDog.DTO.DonacionPerroDTO;
+import com.ohMyDog.OhMyDog.DTO.DonacionRefugioDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,8 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "donacionPerro")
-public class DonacionPerro {
+@Table(name = "donacionRefugio")
+public class DonacionRefugio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,16 +22,17 @@ public class DonacionPerro {
 	private int id;
 	
 
-	@Column(name = "historia")
-	private String historia;
+	@Column(name = "zona")
+	private String zona;
 	
-	
+	@Column(name = "causa")
+	private String causa;
 	
 	@Column(name = "foto")
 	private String foto;
 	
-	@Column(name = "descripcion")
-	private String descripcion;
+	@Column(name = "contacto")
+	private String contacto;
 	
 	@Column(name = "monto")
 	private double monto;
@@ -43,22 +43,26 @@ public class DonacionPerro {
 	@Column(name = "CBU")
 	private String CBU;
 
-	public DonacionPerro() {
+	public DonacionRefugio() {
 		
 	}
-	public DonacionPerro(DonacionPerroDTO p) {
+	public DonacionRefugio(DonacionRefugioDTO p) {
 		this.setFechaLimite(p.getFechaLimite());
 		this.setMonto(p.getMonto());
 		this.setCBU(p.getCBU());
-		this.setHistoria(p.getHistoria());
-		this.setDescripcion(p.getDescripcion());
-		
+		this.setContacto(p.getContacto());
+		this.setZona(p.getZona());
+		this.setCausa(p.getCausa());
 		this.setFoto(p.getFoto());
-		
 	}
 	
 	
-	
+	public String getCausa() {
+		return causa;
+	}
+	public void setCausa(String causa) {
+		this.causa = causa;
+	}
 	public String getFoto() {
 		return foto;
 	}
@@ -84,22 +88,20 @@ public class DonacionPerro {
 	}
 
 
-	public String getHistoria() {
-		return historia;
+	
+	
+	public String getZona() {
+		return zona;
 	}
-
-	public void setHistoria(String historia) {
-		this.historia = historia;
+	public void setZona(String zona) {
+		this.zona = zona;
 	}
-
-	public String getDescripcion() {
-		return descripcion;
+	public String getContacto() {
+		return contacto;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
 	}
-
 	public double getMonto() {
 		return monto;
 	}
@@ -115,6 +117,5 @@ public class DonacionPerro {
 	public void setFechaLimite(Date fechaLimite) {
 		this.fechaLimite = fechaLimite;
 	}
-	
 	
 }
