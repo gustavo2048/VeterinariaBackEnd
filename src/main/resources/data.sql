@@ -105,9 +105,32 @@ VALUES (b'00000', 'CANCELADO', NULL, '2023-05-22 00:00:00', '2023-06-22 00:00:00
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
 VALUES (b'00000', 'CANCELADO', NULL, '2023-05-22 00:00:00', '2023-06-18 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '4', '2');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
-VALUES (b'00000', 'ATENDIDA', '2023-05-22 00:00:00', '2023-05-22 00:00:00', '2023-06-22 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '4', '2');
+VALUES (b'00000', 'ATENDIDO', '2023-05-22 00:00:00', '2023-05-22 00:00:00', '2023-06-22 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '4', '2');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
 VALUES (b'00000', 'ATENDIDO', '2023-05-12 00:00:00', '2023-05-22 00:00:00', '2023-06-18 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '4', '2');
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
 VALUES (b'00000', 'ATENDIDO', '2023-06-02 00:00:00', '2023-05-22 00:00:00', '2023-06-22 00:00:00', 'TARDE', 'Revisar el estado de mi mascota', '4', '2');
 
+
+--Vacunas
+INSERT INTO `vacuna` (`borrado`, `descripcion`, `dosis`, `fecha_creacion`, `tipo`) VALUES (b'00000', 'amoxilina', '4 dosis', '2023-07-07 00:00:34', 'tipoA');
+INSERT INTO `vacuna` (`borrado`, `descripcion`, `dosis`, `fecha_creacion`, `tipo`) VALUES (b'00000', 'analgesico', '1 dosis', '2023-07-04 00:00:34', 'tipoA');
+INSERT INTO `vacuna` (`borrado`, `descripcion`, `dosis`, `fecha_creacion`, `tipo`) VALUES (b'00000', 'analgesico', '2 dosis', '2023-07-05 00:00:34', 'tipoA');
+INSERT INTO `vacuna` (`borrado`, `descripcion`, `dosis`, `fecha_creacion`, `tipo`) VALUES (b'00000', 'sedante', '1 dosis', '2023-07-06 00:00:34', 'tipoA');
+
+INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-08 00:00:34', 'tipoB');
+INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-04 00:00:34', 'tipoB');
+INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-05 00:00:34', 'tipoB');
+INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-02 00:00:34', 'tipoB');
+
+
+--HistorialClinico
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '5000', 'CASTRACION', 'llevo al cachorro para realizarle la castracion', '10.5', 1, 5);
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '3000', 'VACUNACION', 'llevo al cachorro para realizarle una vacunacion', '5.5', 2, 3);
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '6000', 'DESPARACITACION', 'llevo al cachorro para realizarle una desparacitacion', '8.5', 2, 6);
+
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '5600', 'ATENCIONCLINICA', 'llevo al cachorro para realizar una revision', '9', 2, 2);
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '4000', 'VACUNACION', 'llevo al cachorro para realizar vacunacion ', '11.5', 1, 1);
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '4800', 'CASTRACION', 'llevo al cachorro para realizarle una castracion', '9', 2, 7);
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '7000', 'DESPARACITACION', 'llevo al cachorro para realizarle una desparacitacion', '12.5', 1, 4);
+INSERT INTO `historiaclinica` (`borrado`, `fecha_creacion`, `monto`, `motivo`, `observacion`, `peso`, `mascota_id`, `vacuna_id`) VALUES (b'00000', '2023-07-06 00:00:00', '8500', 'ATENCIONCLINICA', 'llevo al cachorro para una revision Clinica', '8.5', 2, 8);

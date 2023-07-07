@@ -25,6 +25,8 @@ public class turnoServiceIMPL implements TurnosService {
 		return this.repo.save(turno);
 	}
 
+	
+	
 	@Override
 	public List<Turnos> listarTurnos() {
 		// TODO Auto-generated method stub
@@ -99,6 +101,11 @@ public class turnoServiceIMPL implements TurnosService {
 	public List<Turnos> listarMiHistorialTurnos(int id, Date dia) {
 		return this.repo.misTurnosHistorial(id, dia);
 
+	}
+
+	@Override
+	public Turnos buscarTurno(int id) {
+		return this.repo.findById(id).get();
 	}
 
 	
