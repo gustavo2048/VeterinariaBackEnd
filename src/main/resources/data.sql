@@ -64,6 +64,17 @@ VALUES (NULL, false, 'Gutierrez', true, 'Amante de los perros', 'lomas@2lomas', 
 INSERT INTO `paseador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
 VALUES (NULL, false, 'Torres', false, 'Puntual', 'lomas@lomas1', NULL, 'Tarde', 'Gaston', 'Centro');
 
+-- TABLA CUIDADORES
+
+INSERT INTO `cuidador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, false, 'Lomas', true, 'Mas de 10 anios de experiencia', 'lomas@lomas', NULL, 'Tarde', 'Tito', 'Centro');
+INSERT INTO `cuidador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, false, 'Gutierrez', true, 'Amante de los perros', 'lomas@2lomas', NULL, 'Maniana', 'Paco', 'Zona Pza Rocha');
+INSERT INTO `cuidador` (`id`, `activo`, `apellido`, `disponible`, `descripcion`, `email`, `fecha_creacion`, `horario_trabajo`, `nombre`, `zona_trabajo`) 
+VALUES (NULL, false, 'Torres', false, 'Puntual', 'lomas@lomas1', NULL, 'Tarde', 'Ayelen', 'Centro');
+
+
+
 -- TABLA TURNOS
 INSERT INTO `turno` (`borrado`, `estado_solicitud`, `fecha_asignada`, `fecha_creado`, `fecha_solicitada`, `horario_tentativo`, `motivo`, `mascota_id`, `usuario_id`) 
 VALUES (b'00000', 'CONFIRMADO', '2023-07-02 00:00:00', '2023-05-22 00:00:00', '2023-05-24 00:00:00', 'MAÑANA', 'Revisar el estado de mi mascota', '1', '1');
