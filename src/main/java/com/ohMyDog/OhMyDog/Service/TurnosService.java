@@ -12,6 +12,7 @@ public interface TurnosService {
 
 	public List<Turnos> listarTurnos();
 	public Turnos crearTurno(Turnos turno);
+	public Turnos buscarTurno(int id);
 	public Turnos modificarTurno(Turnos turno); //No implementar
 	public void eliminarCliente(int id);  //No implementar
 	public List<Turnos> listarMisTurnoPendientes(Usuario usuario);

@@ -3,6 +3,7 @@ package com.ohMyDog.OhMyDog.Entity;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.ohMyDog.OhMyDog.DTO.HistoriaClinicaDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,7 +52,18 @@ public class HistoriaClinica {
 	private Mascota mascota;
 
 	
+	public HistoriaClinica() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	public HistoriaClinica(HistoriaClinicaDTO HC) {
+		this.setBorrado(HC.isBorrado());
+		this.setFechaCreacion(HC.getFechaCreacion());
+		this.setObservacion(HC.getObservacion());
+		this.setMotivo(HC.getMotivo());
+		this.setMonto(HC.getMonto());
+		this.setPeso(HC.getPeso());
+	}
 	
 	public int getId() {
 		return id;
@@ -91,6 +103,38 @@ public class HistoriaClinica {
 
 	public void setMascota(Mascota mascota) {
 		this.mascota = mascota;
+	}
+
+	public String getMotivo() {
+		return motivo;
+	}
+
+	public void setMotivo(String motivo) {
+		this.motivo = motivo;
+	}
+
+	public int getMonto() {
+		return monto;
+	}
+
+	public void setMonto(int monto) {
+		this.monto = monto;
+	}
+
+	public String getPeso() {
+		return peso;
+	}
+
+	public void setPeso(String peso) {
+		this.peso = peso;
+	}
+
+	public Vacunas getVacuna() {
+		return vacuna;
+	}
+
+	public void setVacuna(Vacunas vacuna) {
+		this.vacuna = vacuna;
 	}
 
 	
