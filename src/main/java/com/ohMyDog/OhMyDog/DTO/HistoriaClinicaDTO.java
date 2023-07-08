@@ -26,6 +26,10 @@ public class HistoriaClinicaDTO {
 	
 	private int idTurno;
 	
+	private int idUsuario;
+	
+	private boolean descuentoAplicado;
+	
 	private VacunaDTO vacuna;
 	
 	
@@ -142,5 +146,27 @@ public class HistoriaClinicaDTO {
 	public void setIdTurno(int idTurno) {
 		this.idTurno = idTurno;
 	}
+
+
+	public boolean isDescuentoAplicado() {
+		return descuentoAplicado;
+	}
+
+
+	public void setDescuentoAplicado(boolean descuentoAplicado) {
+		this.descuentoAplicado = descuentoAplicado;
+	}
+
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	
+	
 	
 }
