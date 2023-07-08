@@ -38,6 +38,7 @@ public class DonacionPerroControlador {
 		//Usuario usuario1 = usuarioService.BuscarUsuario(encontrado.getUsuarioId());
 		
 		DonacionPerro nuevaDonacionPerro = new DonacionPerro(DonacionPerro); 
+		//nuevaDonacionPerro.getFechaLimite().setDate(nuevaDonacionPerro.getFechaLimite().getDate() + 1);
 			//encontradoService.crearEncontrado(nuevaEncontrado);		
 	//nuevaEncontrado.setUsuario(usuario1);
 		//System.out.println(encontradoService.crearEncontrado(nuevaEncontrado));
@@ -60,6 +61,7 @@ public class DonacionPerroControlador {
 	@RequestMapping(value="modificarDonacionPerro", method = RequestMethod.POST )
 	public ResponseEntity<?> modificarDonacionPerro(@RequestBody DonacionPerro encontrado){	
 		DonacionPerro encontrado2=this.donacionPerroService.modificarDonacionPerro(encontrado);
+		// encontrado2.getFechaLimite().setDate(encontrado.getFechaLimite().getDate() + 1);
 		return ResponseEntity.ok(encontrado2);
 	}
 }
