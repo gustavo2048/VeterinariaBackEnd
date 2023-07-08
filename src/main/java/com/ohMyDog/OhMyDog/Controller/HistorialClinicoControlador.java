@@ -71,14 +71,17 @@ public class HistorialClinicoControlador {
 		Turnos turnoRealizado = this.turnoService.buscarTurno(historiaClinica.getIdTurno());
 		turnoRealizado.setEstadoSolicitud("ATENDIDO");
 		turnoService.modificarTurno(turnoRealizado);
+
 		
-		// Evaluar si se aplico descuento
+		Usuario usuarioActualizar = usuarioService.BuscarUsuario(historiaClinica.getIdUsuario());
+		usuarioActualizar.setVerificado(true);
+		
+		// Evaluar si se aplico descuento y reseteo el contador
 		if (historiaClinica.isDescuentoAplicado()) {
-			Usuario usuarioActualizar = usuarioService.BuscarUsuario(historiaClinica.getIdUsuario());
 			usuarioActualizar.setMontoDescuento(0);
-			usuarioService.modificarUsuario(usuarioActualizar);
 		}
 		
+		usuarioService.modificarUsuario(usuarioActualizar);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(completaHC);
 	}
