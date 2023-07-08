@@ -7,10 +7,10 @@ public class LibretaSanitariaDTO {
 	
 	private String motivo;
 	private Date fechaRealizado;
-	private String dosis;
-	private String descripcion;
 	private String peso;
 	private String tipoVacuna;
+	private String dosis;
+	private String descripcion;
 	
 	
 	public String getTipoVacuna() {

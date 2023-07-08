@@ -105,17 +105,18 @@ public class HistorialClinicoControlador {
 			nuevaLibreta.setFechaRealizado(historia.getFechaCreacion());
 			nuevaLibreta.setPeso(historia.getPeso());
 			
-			if (historia.getMotivo() == "DESPARACITACION" || historia.getMotivo() == "VACUNACION") {
-				nuevaLibreta.setTipoVacuna(historia.getVacuna().getTipo());
-				// completar los casos de vacunacion y otras vacunas
-				//
-				
+			nuevaLibreta.setTipoVacuna(historia.getVacuna().getTipo());
+			if ( historia.getMotivo() == "VACUNACION") {
 			}
+			nuevaLibreta.setDosis(historia.getVacuna().getDosis());
+			if (historia.getMotivo() == "DESPARACITACION") {
+			}
+			nuevaLibreta.setDescripcion(historia.getVacuna().getDescripcion());
 			libreta.add(nuevaLibreta);
 			
 		}
 		//Se devuelve la lista libreta con todos los resusltados obtenidos
-		return ResponseEntity.status(HttpStatus.CREATED).body("Ingresaa a libretaSanitaria");
+		return ResponseEntity.status(HttpStatus.CREATED).body(libreta);
 	}
 	
 	
