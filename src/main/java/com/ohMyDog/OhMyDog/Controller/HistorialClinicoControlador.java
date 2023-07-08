@@ -1,9 +1,14 @@
 package com.ohMyDog.OhMyDog.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,13 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ohMyDog.OhMyDog.DTO.HistoriaClinicaDTO;
+import com.ohMyDog.OhMyDog.DTO.LibretaSanitariaDTO;
 import com.ohMyDog.OhMyDog.Entity.HistoriaClinica;
 import com.ohMyDog.OhMyDog.Entity.Mascota;
 import com.ohMyDog.OhMyDog.Entity.Turnos;
+import com.ohMyDog.OhMyDog.Entity.Usuario;
 import com.ohMyDog.OhMyDog.Entity.Vacunas;
 import com.ohMyDog.OhMyDog.ServiceIMPL.historiaClinicaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.mascotaServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.turnoServiceIMPL;
+import com.ohMyDog.OhMyDog.ServiceIMPL.usuarioServiceIMPL;
 import com.ohMyDog.OhMyDog.ServiceIMPL.vacunaServiceIMPL;
 
 
@@ -38,6 +46,9 @@ public class HistorialClinicoControlador {
 	
 	@Autowired
 	private turnoServiceIMPL turnoService;
+	
+	@Autowired
+	private usuarioServiceIMPL usuarioService;
 	
 	
 	@PostMapping
@@ -61,8 +72,51 @@ public class HistorialClinicoControlador {
 		turnoRealizado.setEstadoSolicitud("ATENDIDO");
 		turnoService.modificarTurno(turnoRealizado);
 		
+		// Evaluar si se aplico descuento
+		if (historiaClinica.isDescuentoAplicado()) {
+			Usuario usuarioActualizar = usuarioService.BuscarUsuario(historiaClinica.getIdUsuario());
+			usuarioActualizar.setMontoDescuento(0);
+			usuarioService.modificarUsuario(usuarioActualizar);
+		}
+		
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(completaHC);
 	}
+	
+	@GetMapping
+	@RequestMapping(value="listadoMiHistoriaClinica/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> getTurnosPendientes(@PathVariable int id){
+		
+		List<HistoriaClinica> lista = this.historiaClinicaService.listadoHistoriaClinicaMiMascota(id);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(lista);
+	}
+	
+	
+	@GetMapping
+	@RequestMapping(value="libretaSanitaria/{id}", method = RequestMethod.GET )
+	public ResponseEntity<?> getLibretaSanitaria(@PathVariable int id){
+		List<LibretaSanitariaDTO> libreta = new ArrayList<LibretaSanitariaDTO>();
+		List<HistoriaClinica> listaHistoria = this.historiaClinicaService.listadoHistoriaParaLibretaSanitaria(id);
+		
+		for (HistoriaClinica historia: listaHistoria) {
+			LibretaSanitariaDTO nuevaLibreta = new LibretaSanitariaDTO();
+			nuevaLibreta.setMotivo(historia.getMotivo());
+			nuevaLibreta.setFechaRealizado(historia.getFechaCreacion());
+			nuevaLibreta.setPeso(historia.getPeso());
+			
+			if (historia.getMotivo() == "DESPARACITACION" || historia.getMotivo() == "VACUNACION") {
+				nuevaLibreta.setTipoVacuna(historia.getVacuna().getTipo());
+				// completar los casos de vacunacion y otras vacunas
+				//
+				
+			}
+			libreta.add(nuevaLibreta);
+			
+		}
+		//Se devuelve la lista libreta con todos los resusltados obtenidos
+		return ResponseEntity.status(HttpStatus.CREATED).body("Ingresaa a libretaSanitaria");
+	}
+	
 	
 }

@@ -26,4 +26,14 @@ public class historiaClinicaServiceIMPL implements HistoriaClinicaService {
 		return (List<HistoriaClinica>)this.repo.findAll();
 	}
 
+	@Override
+	public List<HistoriaClinica> listadoHistoriaClinicaMiMascota(int id) {
+		return this.repo.listadoHistoriaClinicaMiMascota(id);
+	}
+
+	@Override
+	public List<HistoriaClinica> listadoHistoriaParaLibretaSanitaria(int id) {
+		return this.repo.historiaParaLibretaSanitaria(id) ;
+	}
+
 }

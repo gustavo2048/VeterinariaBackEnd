@@ -9,5 +9,6 @@ public interface HistoriaClinicaService {
 	
 	public HistoriaClinica crearHistoriaClinica(HistoriaClinica historiaClinica);
 	public List<HistoriaClinica> listarHistoriaClinicas();
-	
+	public List<HistoriaClinica> listadoHistoriaClinicaMiMascota(int id);
+	public List<HistoriaClinica> listadoHistoriaParaLibretaSanitaria(int id);
 }
