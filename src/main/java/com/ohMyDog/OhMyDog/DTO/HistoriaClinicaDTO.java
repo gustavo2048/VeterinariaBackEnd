@@ -30,6 +30,8 @@ public class HistoriaClinicaDTO {
 	
 	private boolean descuentoAplicado;
 	
+	private boolean descuentoEnviarSolicit;
+	
 	private VacunaDTO vacuna;
 	
 	
@@ -165,6 +167,16 @@ public class HistoriaClinicaDTO {
 
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+
+
+	public boolean isDescuentoEnviarSolicit() {
+		return descuentoEnviarSolicit;
+	}
+
+
+	public void setDescuentoEnviarSolicit(boolean descuentoEnviarSolicit) {
+		this.descuentoEnviarSolicit = descuentoEnviarSolicit;
 	}
 	
 	

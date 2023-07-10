@@ -22,6 +22,8 @@ public class TurnosDTO implements Serializable {
 	
 	private Date fechaCreado;
 	
+	private String eleccionMotivo;
+	
 	private Date fechaSolicitada;
 	
 	private Date fechaAsignada;
@@ -47,6 +49,7 @@ public class TurnosDTO implements Serializable {
 		this.setFechaCreado(turno.getFechaCreado());
 		this.setFechaAsignada(turno.getFechaAsignada());
 		this.setMotivo(turno.getMotivo());
+		this.setEleccionMotivo(turno.getEleccionMotivo());
 	}
 	
 	
@@ -136,6 +139,14 @@ public class TurnosDTO implements Serializable {
 
 	public void setMascota(Mascota mascota) {
 		this.mascota = mascota;
+	}
+
+	public String getEleccionMotivo() {
+		return eleccionMotivo;
+	}
+
+	public void setEleccionMotivo(String eleccionMotivo) {
+		this.eleccionMotivo = eleccionMotivo;
 	}
 	
 

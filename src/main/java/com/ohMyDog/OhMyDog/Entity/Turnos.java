@@ -37,6 +37,9 @@ public class Turnos {
 	@Column(name = "estadoSolicitud")
 	private String estadoSolicitud;
 	
+	@Column(name = "eleccionMotivo")
+	private String eleccionMotivo;
+	
 	@Column(name = "fechaCreado")
 	private Date fechaCreado;
 	
@@ -66,6 +69,7 @@ public class Turnos {
 		this.setHorarioTentativo(turnoDTO.getHorarioTentativo());
 		this.setFechaSolicitada(turnoDTO.getFechaSolicitada());
 		this.setMotivo(turnoDTO.getMotivo( ));
+		this.setEleccionMotivo(turnoDTO.getEleccionMotivo());
 	}
 	
 	
@@ -163,6 +167,14 @@ public class Turnos {
 
 	public void setFechaSolicitada(Date fechaSolicitada) {
 		this.fechaSolicitada = fechaSolicitada;
+	}
+
+	public String getEleccionMotivo() {
+		return eleccionMotivo;
+	}
+
+	public void setEleccionMotivo(String eleccionMotivo) {
+		this.eleccionMotivo = eleccionMotivo;
 	}
 
 }
