@@ -6,32 +6,42 @@ VALUES ('Gonzales',false,'3333','calle123','prueba3@gmail.com','Gustavo',1234,'C
 INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`,`monto_descuento`) 
 VALUES ('Roberto',false,'3333','calle123','veterinario1@gmail.com','Pedro',1234,'VETERINARIO','2213422234',true, 0);
 
+INSERT INTO `usuario`(`apellido`, `borrado`, `dni`, `domicilio`, `email`, `nombre`, `password`, `rol`, `telefono`, `verificado`, `monto_descuento`) 
+VALUES ('Talerico',false,'3333333','calle123','prueba0@gmail.com','Yamila',1234,'CLIENTE','22134223443',false, 0);
+
+
+
 --- TABLA TARJETAS
 INSERT INTO `tarjeta` (`id`, `codigo`, `fecha`, `monto`, `nombre`, `nro_tarjeta`,`usuario_id`)
 VALUES (NULL, '123', '2025-07-09', '50000', 'lautaro', '7654321','1');
 
 -- TABLA MASCOTA
 INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`,`edad`,`sexo`, `foto`, `nombre`, `publicado`,`raza`, `tamanio`, `usuario_id`,`en_adopcion`)
-VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', 'macho', NULL, 'Oddie',false, 'callejero', 'grande', '1', true);
+VALUES (NULL, b'00000', 'Es hermoso', 'negro', '2019-05-27 00:00:00', 'Macho', NULL, 'Oddie',false, 'Mestizo', 'grande', '1', true);
 INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`,`foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`,`en_adopcion`)
-VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','hembra', NULL, 'Nancy',false, 'callejero', 'grande', '1',false);
+VALUES (NULL, b'00000', 'Se la re banca', 'blanco', '2022-05-27 00:00:00','Hembra', NULL, 'Nancy',false, 'Mestizo', 'grande', '1',false);
 INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`,`en_adopcion`)
-VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','hembra', NULL, 'Cristal',false, 'callejero', 'grande', '2',true);
+VALUES (NULL, b'00000', 'Mejor amigo', 'negro', '2021-05-27 00:00:00','Hembra', NULL, 'Cristal',false, 'Mestizo', 'grande', '2',true);
 INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`, `edad`,`sexo`, `foto`, `nombre`, `publicado`, `raza`, `tamanio`, `usuario_id`,`en_adopcion`)
-VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','hembra', NULL, 'Susy',true, 'callejero', 'grande', '2',true);
+VALUES (NULL, b'00000', 'Se porta re bien', 'negro', '2023-05-27 00:00:00','Hembra', NULL, 'Susy',true, 'Mestizo', 'grande', '2',true);
+
+INSERT INTO `mascota` (`id`, `borrado`, `caracteristicas`, `color`,`edad`,`sexo`, `foto`, `nombre`, `publicado`,`raza`, `tamanio`, `usuario_id`,`en_adopcion`)
+VALUES (NULL, b'00000', 'Es hermoso', 'gris', '2023-07-01 00:00:00', 'Macho', NULL, 'Junior',false, 'Mestizo', 'grande', '1', false);
+
+
 
 -- TABLA ENCONTRADOS
 INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `color`,`tam`,`sexo`, `foto`, `raza`, `lugar`, `usuario_id`)
-VALUES (NULL, 'Encontre este perro lastimado', false, '2023-06-05', 'negro','mediano','macho',NULL,'mestizo', 'Centro', '1');
+VALUES (NULL, 'Encontre este perro lastimado', false, '2023-06-05', 'negro','mediano','Macho',NULL,'Mestizo', 'Centro', '1');
 INSERT INTO `encontrado` (`id`, `descripcion`, `duenio`, `fecha_encontrado`, `color`,`tam`,`sexo`, `foto`, `raza`, `lugar`, `usuario_id`)
-VALUES (NULL, 'No tiene collar', true, '2023-06-05', 'negro','mediano','hembra',NULL,'mestizo', 'Plaza Malvinas', '1');
+VALUES (NULL, 'No tiene collar', true, '2023-06-05', 'negro','mediano','Hembra',NULL,'Mestizo', 'Plaza Malvinas', '1');
 
 
 -- TABLA PERDIDOS
 INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
-VALUES (NULL, 'Perdi mi perro tiene collar',false, '2023-06-01', 'macho', '9 Y 60', '3', '2');
+VALUES (NULL, 'Perdi mi perro tiene collar',false, '2023-06-01', 'Macho', '9 Y 60', '3', '2');
 INSERT INTO `perdido` (`id`, `descripcion`, `encontrado`, `fecha_perdido`, `genero`, `lugar`, `mascota_id`, `usuario_id`)
-VALUES (NULL, 'Se escapo mi perrito es ciego', true, '2023-06-01', 'macho', 'Plaza rocha', '4', '2');
+VALUES (NULL, 'Se escapo mi perrito es ciego', true, '2023-06-01', 'Macho', 'Plaza rocha', '4', '2');
 
 
 -- TABLA DE DONACIONES A PERROS
@@ -119,7 +129,7 @@ INSERT INTO `vacuna` (`borrado`, `descripcion`, `dosis`, `fecha_creacion`, `tipo
 INSERT INTO `vacuna` (`borrado`, `descripcion`, `dosis`, `fecha_creacion`, `tipo`) VALUES (b'00000', 'sedante', '1 dosis', '2023-07-06 00:00:34', 'Ninguna');
 
 INSERT INTO `vacuna` (`borrado`,`fecha_creacion`,`dosis`, `tipo`) VALUES (b'00000','2023-07-08 00:00:34','2dosis', 'Ninguna');
-INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-04 00:00:34', 'tipoA');
+INSERT INTO `vacuna` (`borrado`,`fecha_creacion`,`dosis`, `tipo`) VALUES (b'00000','2023-07-04 00:00:34', '12 dosis','tipoA');
 INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-05 00:00:34', 'tipoA');
 INSERT INTO `vacuna` (`borrado`,`fecha_creacion`, `tipo`) VALUES (b'00000','2023-07-02 00:00:34', 'tipoA');
 
